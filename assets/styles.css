@@ -1,0 +1,704 @@
+/* ============================================================
+   VB Rénovation — Ravalement de façade & peinture à Lannion
+   Structure héritée du système Bretonnet/Debord (bento, hero plein
+   cadre, kickers à filet, Bricolage Grotesque + Inter) ; palette
+   tirée du logo : bleu marine + or, blanc minéral d'enduit frais.
+   Séparateurs en diagonale (la passe de rouleau), pas de vagues.
+   Aucun hex en dur hors de :root.
+   ============================================================ */
+
+:root {
+  /* Palette métier façadier-peintre, dérivée du logo (toit or + toit
+     marine) : encre et aplats marine, filets et étoiles or, fond blanc
+     minéral (enduit taloché). Neutres froids cohérents. */
+  --ink:        #1a2334;
+  --text:       rgba(21, 30, 48, 0.88);
+  --text-soft:  rgba(30, 40, 58, 0.75);
+  --text-mute:  #5f6a7c;
+
+  --bg:         #f4f4f1;
+  --bg-deep:    #eaeae4;
+  --surface:    #ffffff;
+
+  --line:       rgba(30, 45, 75, 0.13);
+  --line-soft:  rgba(30, 45, 75, 0.07);
+
+  --accent:        #1c4270;
+  --accent-deep:   #143156;
+  --accent-bright: #e7b866;
+  --accent-tint:   rgba(28, 66, 112, .08);
+  --accent-tint-2: rgba(28, 66, 112, .16);
+
+  /* L'or du logo : réservé aux filets, étoiles et numéros spécimen.
+     Jamais en aplat sous texte blanc (contraste insuffisant). */
+  --gold:      #b9882c;
+  --gold-deep: #8a6414;
+
+  --navy-1: #16223a;
+  --navy-2: #111b2e;
+
+  --danger:      #b3362b;
+  --danger-tint: rgba(179, 54, 43, .12);
+
+  /* Rayons resserrés : le tout-arrondi « bulle » est un tell IA/SaaS. */
+  --r-xs: 8px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+
+  --sh-sm: 0 2px 10px rgba(16, 26, 46, .07), 0 8px 24px rgba(16, 26, 46, .06);
+  --sh-lg: 0 8px 24px rgba(16, 26, 46, .10), 0 24px 60px rgba(16, 26, 46, .12);
+
+  --maxw: 1200px;
+  --display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  --font: "Inter", ui-sans-serif, sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* scroll-padding-top : la navbar est fixe et fait 78px. Sans cette réserve,
+   chaque clic du menu fait atterrir le titre de section SOUS la barre. */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 96px; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* height:auto : les attributs width/height du HTML posent une hauteur fixe
+   qui neutraliserait aspect-ratio. Les règles plus spécifiques reprennent
+   la main avec height:100%. */
+img, video { max-width: 100%; display: block; height: auto; }
+
+h1, h2, h3 { font-family: var(--display); color: var(--ink); letter-spacing: -.03em; line-height: 1.06; font-weight: 700; }
+
+/* Le marine passe le AA sur fond clair ; l'or non — il reste décoratif. */
+a { color: var(--accent-deep); text-underline-offset: 3px; }
+.prose a:visited { color: var(--navy-2); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+/* Sur les fonds sombres, l'anneau marine se noie — variante or clair. */
+.hero :focus-visible, .section.dark :focus-visible, .footer :focus-visible,
+.callbar :focus-visible, .mobile-menu :focus-visible {
+  outline-color: var(--accent-bright);
+}
+
+/* ---------- Micro-typographie ---------- */
+::selection { background: var(--accent); color: #fff; }
+h2, h3 { text-wrap: balance; }
+.lead, .b-card p, .faq-list .answer, .step > span:not(.step-n) { text-wrap: pretty; }
+
+.container { max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
+.section { padding-block: clamp(64px, 8vw, 112px); position: relative; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px;
+  background: var(--accent-tint); color: var(--accent-deep);
+  font-size: 13px; font-weight: 600; letter-spacing: .02em;
+}
+.chip svg { width: 15px; height: 15px; flex: none; }
+
+/* Kicker éditorial : un filet or, des capitales espacées, rien d'autre. */
+.kicker {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--accent-deep);
+}
+.kicker::before { content: ""; width: 22px; height: 2px; background: var(--gold); flex: none; }
+.dark .kicker { color: var(--accent-bright); }
+.dark .kicker::before { background: var(--accent-bright); }
+
+/* Spécimen de matériaux (intro) — la palette de l'artisan en petites capitales. */
+.materials {
+  margin-top: 24px; font-size: 12.5px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--text-mute);
+}
+
+.h2 { font-size: clamp(28px, 3.6vw, 46px); margin-top: 14px; }
+.lead { margin-top: 16px; font-size: clamp(16px, 1.3vw, 18px); color: var(--text-soft); max-width: 58ch; }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 48px; padding: 0 22px;
+  border-radius: 999px; border: 0; cursor: pointer;
+  font-family: var(--font); font-size: 15px; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background .25s var(--ease), transform .2s var(--ease), box-shadow .25s var(--ease);
+}
+.btn .ar { width: 17px; height: 17px; flex: none; transition: transform .25s var(--ease); }
+.btn:hover .ar { transform: translateX(3px); }
+.btn:active { transform: translateY(1px); }
+.btn-lg { min-height: 54px; padding: 0 26px; font-size: 16px; }
+
+.btn-accent { background: var(--accent); color: #fff; box-shadow: 0 6px 20px rgba(28, 66, 112, .30); }
+.btn-accent:hover { background: var(--accent-deep); }
+.btn-light { background: #fff; color: var(--ink); box-shadow: var(--sh-sm); }
+.btn-light:hover { background: var(--bg); }
+.btn-glass {
+  background: rgba(255, 255, 255, .14); color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .32);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.btn-glass:hover { background: rgba(255, 255, 255, .24); }
+.btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn-ghost:hover { box-shadow: inset 0 0 0 1px var(--ink); }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav {
+  position: fixed; inset: 0 0 auto; z-index: 60;
+  transition: background .3s var(--ease), box-shadow .3s var(--ease);
+}
+.site-nav.scrolled {
+  background: rgba(255, 255, 255, .88);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.nav-inner {
+  max-width: var(--maxw); margin-inline: auto; padding: 18px 24px;
+  display: flex; align-items: center; gap: 28px;
+}
+.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; margin-right: auto; min-height: 44px; }
+/* Le logo réel (fond blanc) vit dans une tuile blanche : lisible sur le
+   hero sombre comme sur la barre blanche une fois scrollée. */
+.brand-mark {
+  width: 42px; height: 42px; border-radius: 11px; flex: none;
+  background: #fff; display: grid; place-items: center; overflow: hidden;
+  box-shadow: 0 4px 14px rgba(16, 26, 46, .28), inset 0 0 0 1px rgba(30, 45, 75, .08);
+}
+.brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.brand-txt b {
+  display: block; font-family: var(--display); font-size: 17px;
+  font-weight: 800; letter-spacing: -.02em; color: #fff; line-height: 1.1;
+}
+.brand-txt span {
+  display: block; font-size: 10.5px; letter-spacing: .13em;
+  text-transform: uppercase; color: rgba(255, 255, 255, .62); font-weight: 500;
+}
+.site-nav.scrolled .brand-txt b { color: var(--ink); }
+.site-nav.scrolled .brand-txt span { color: var(--text-mute); }
+
+.nav-links { display: flex; gap: 26px; list-style: none; }
+.nav-links a {
+  font-size: 14.5px; font-weight: 500; text-decoration: none;
+  color: rgba(255, 255, 255, .82); transition: color .2s var(--ease);
+}
+.nav-links a:hover { color: #fff; }
+.site-nav.scrolled .nav-links a { color: var(--text-soft); }
+.site-nav.scrolled .nav-links a:hover { color: var(--accent); }
+
+.nav-cta { display: flex; align-items: center; gap: 16px; }
+.nav-tel {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14.5px; font-weight: 700; color: #fff;
+  text-decoration: none; white-space: nowrap;
+}
+.nav-tel svg { width: 15px; height: 15px; color: var(--accent-bright); }
+.site-nav.scrolled .nav-tel { color: var(--ink); }
+.nav-cta .btn { min-height: 42px; font-size: 14.5px; }
+
+.burger {
+  display: none; flex: none;
+  width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.burger i {
+  display: block; width: 20px; height: 2px; border-radius: 2px;
+  background: #fff; position: relative; transition: background .2s var(--ease);
+}
+.burger i::before, .burger i::after {
+  content: ""; position: absolute; left: 0; width: 20px; height: 2px;
+  border-radius: 2px; background: #fff; transition: transform .28s var(--ease);
+}
+.burger i::before { top: -6px; }
+.burger i::after { top: 6px; }
+.site-nav.scrolled .burger i, .site-nav.scrolled .burger i::before, .site-nav.scrolled .burger i::after { background: var(--ink); }
+.burger[aria-expanded="true"] i { background: transparent !important; }
+.burger[aria-expanded="true"] i::before { transform: translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] i::after { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-menu { display: none; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: clamp(620px, 96vh, 960px);
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+  background: var(--navy-1);
+  padding-top: 104px;
+}
+.hero-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-1); }
+.hero-media video, .hero-media img {
+  /* Sujet (peintre en nacelle) dans la moitié droite de la photo : le
+     cadrage le garde entier, le texte occupe la gauche assombrie. */
+  width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+}
+/* Trois dégradés, aucun voile global — la droite de l'image reste nette :
+   1. vers le haut  : assied le texte du hero
+   2. vers la droite : dégage le sujet
+   3. vers le bas   : le mur blanc et le ciel clair mangeaient le texte
+      blanc de la navbar ; cette bande garantit son contraste. */
+.hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(10, 16, 28, .94) 0%, rgba(10, 16, 28, .72) 26%, rgba(10, 16, 28, .34) 48%, rgba(10, 16, 28, 0) 70%),
+    linear-gradient(to right, rgba(10, 16, 28, .60) 0%, rgba(10, 16, 28, .16) 48%, rgba(10, 16, 28, 0) 74%),
+    linear-gradient(to bottom, rgba(10, 16, 28, .62) 0%, rgba(10, 16, 28, .28) 9%, rgba(10, 16, 28, 0) 18%);
+}
+.hero-inner {
+  position: relative; z-index: 2; width: 100%;
+  max-width: var(--maxw); margin-inline: auto;
+  padding: 0 24px clamp(64px, 8vw, 104px);
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 8px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, .13);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .28);
+  color: #fff; font-size: 13.5px; font-weight: 500;
+}
+.hero-label svg { width: 16px; height: 16px; color: var(--accent-bright); flex: none; }
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 6.4vw, 82px);
+  font-weight: 700; line-height: .98; letter-spacing: -.035em;
+  color: #fff; max-width: 15ch; margin-top: 22px;
+  text-shadow: 0 4px 30px rgba(6, 12, 24, .4);
+}
+.hero h1 em { font-style: normal; color: var(--accent-bright); }
+.hero-sub {
+  margin-top: 22px; max-width: 52ch;
+  font-size: clamp(15.5px, 1.5vw, 19px); color: rgba(255, 255, 255, .9);
+  text-shadow: 0 1px 4px rgba(6, 12, 24, .55);
+}
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+/* La passe de rouleau : une seule diagonale nette, pas de vague SaaS. */
+.hero-wave { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 3; line-height: 0; pointer-events: none; }
+.hero-wave svg { width: 100%; height: clamp(40px, 6vw, 78px); display: block; }
+.hero-wave path { fill: var(--bg); }
+
+/* ============================================================
+   INTRO (split)
+   ============================================================ */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+.intro-visual { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-lg); position: relative; }
+.intro-visual img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.intro-visual figcaption {
+  position: absolute; left: 14px; bottom: 14px;
+  padding: 7px 13px; border-radius: 999px;
+  background: rgba(13, 19, 33, .82);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+}
+
+/* ============================================================
+   SERVICES — bento
+   ============================================================ */
+.sec-head { max-width: 46rem; margin-bottom: clamp(32px, 4vw, 52px); }
+
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 232px; gap: 18px; }
+.b-card {
+  position: relative; border-radius: var(--r-md); overflow: hidden; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  box-shadow: var(--sh-sm); text-decoration: none;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  grid-column: span 3;
+}
+.b-card.feat { grid-column: span 3; grid-row: span 2; }
+/* La dernière carte ferme la grille en pleine largeur : sans ça, la rangée
+   finale laisse un trou d'une demi-colonne. */
+.b-card.wide { grid-column: span 6; }
+.b-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
+.b-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .6s var(--ease); }
+.b-card:hover img { transform: scale(1.06); }
+/* Voile calibré sur nos photos les plus claires (murs blancs, ciel) :
+   sans lui, titre blanc et numéro or y deviennent illisibles. */
+.b-card::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(12, 18, 31, .96) 0%, rgba(12, 18, 31, .82) 34%, rgba(12, 18, 31, .42) 62%, rgba(12, 18, 31, .1) 86%, rgba(12, 18, 31, 0) 100%);
+}
+.b-card.feat::after {
+  background: linear-gradient(to top, rgba(12, 18, 31, .93) 0%, rgba(12, 18, 31, .68) 40%, rgba(12, 18, 31, .28) 70%, rgba(12, 18, 31, 0) 96%);
+}
+.b-body { position: relative; z-index: 2; padding: 22px; }
+.b-num {
+  display: block; font-family: var(--display); font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; color: var(--accent-bright); margin-bottom: 9px;
+}
+.b-card h3 { color: #fff; font-size: clamp(18px, 1.7vw, 23px); }
+.b-card p { color: rgba(255, 255, 255, .82); font-size: 15px; margin-top: 8px; line-height: 1.5; }
+.b-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.b-tags span {
+  padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+  background: rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .88);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+}
+.b-arrow {
+  position: absolute; top: 16px; right: 16px; z-index: 3;
+  width: 38px; height: 38px; border-radius: 11px;
+  display: grid; place-items: center;
+  /* Base sombre et non blanche : sur les zones claires des photos, la
+     pastille blanche translucide devenait invisible. */
+  background: rgba(13, 19, 33, .38);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3);
+  color: #fff; transition: background .25s var(--ease), transform .25s var(--ease);
+}
+.b-arrow svg { width: 17px; height: 17px; }
+.b-card:hover .b-arrow { background: var(--accent); transform: translate(2px, -2px); }
+
+/* Bande « Également » en ligne éditoriale sous filet — même registre que
+   les communes, pas de pilules à coches. */
+.also {
+  margin-top: 26px; padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+}
+.also > b { font-family: var(--display); font-size: 15px; color: var(--ink); letter-spacing: -.01em; }
+.also ul { list-style: none; display: flex; flex-wrap: wrap; row-gap: 8px; }
+.also li { font-size: 15px; color: var(--text-soft); }
+.also li:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--gold); font-weight: 700; }
+
+/* ============================================================
+   SECTION SOMBRE
+   ============================================================ */
+.section.dark { background: var(--navy-1); color: rgba(255, 255, 255, .72); overflow: hidden; }
+.dark .h2 { color: #fff; }
+.dark .lead { color: rgba(255, 255, 255, .66); }
+.dark .chip { background: rgba(231, 184, 102, .16); color: var(--accent-bright); }
+.dark .wave-top, .dark .wave-bottom { position: absolute; left: 0; right: 0; z-index: 1; line-height: 0; }
+.dark .wave-top { top: -1px; transform: rotate(180deg); }
+.dark .wave-bottom { bottom: -1px; }
+.wave-top svg, .wave-bottom svg { width: 100%; height: clamp(34px, 5vw, 64px); display: block; }
+.wave-top path, .wave-bottom path { fill: var(--bg); }
+.dark .container { position: relative; z-index: 2; }
+
+/* Arguments en filets, pas en tuiles-icônes : chaque item ouvre sur un
+   hairline clair — registre imprimé, cohérent avec les kickers. */
+.feature-list { display: grid; gap: 18px; margin-top: 30px; }
+.feat-item { border-top: 1px solid rgba(255, 255, 255, .16); padding-top: 16px; }
+.feat-item b { display: block; font-family: var(--display); font-size: 16.5px; color: #fff; letter-spacing: -.01em; }
+/* `> div >` obligatoire : en `.feat-item span`, cette règle capturait aussi
+   d'éventuels spans décoratifs dont elle écrasait la mise en forme. */
+.feat-item > div > span { display: block; margin-top: 4px; font-size: 15px; color: rgba(255, 255, 255, .64); line-height: 1.55; }
+
+.visual { position: relative; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-lg); }
+.visual img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.badge {
+  position: absolute; left: 16px; bottom: 16px;
+  padding: 9px 15px; border-radius: 999px;
+  background: rgba(13, 19, 33, .82);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+  color: #fff; font-size: 12.5px; font-weight: 600;
+}
+
+/* ============================================================
+   CALLOUT
+   ============================================================ */
+.callout {
+  margin-top: 24px; padding: 20px 22px;
+  border-radius: var(--r-md); background: var(--accent-tint);
+  box-shadow: inset 0 0 0 1px var(--accent-tint-2);
+}
+.callout b { display: block; font-family: var(--display); font-size: 16.5px; color: var(--accent-deep); letter-spacing: -.01em; margin-bottom: 6px; }
+.callout p { font-size: 15px; color: var(--text-soft); }
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+/* Process en colonnes éditoriales : filet haut + numéro spécimen 01–04. */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.step { border-top: 2px solid var(--line); padding-top: 16px; }
+.step-n {
+  display: block;
+  font-family: var(--display); font-weight: 800; font-size: 14px;
+  letter-spacing: .08em; color: var(--gold-deep);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.step b { display: block; font-family: var(--display); font-size: 16.5px; color: var(--ink); letter-spacing: -.01em; }
+/* :not(.step-n) obligatoire : sans lui la règle écrase le numéro spécimen. */
+.step > span:not(.step-n) { display: block; margin-top: 7px; font-size: 15px; color: var(--text-soft); line-height: 1.55; }
+
+/* ============================================================
+   ZONES
+   ============================================================ */
+/* Les communes en texte courant à interponctions — scannable et imprimé. */
+.towns {
+  display: flex; flex-wrap: wrap; row-gap: 10px;
+  margin-top: 26px; list-style: none; max-width: 56rem;
+}
+.towns li { font-size: 16px; color: var(--text-soft); }
+.towns li:not(:last-child)::after { content: "·"; margin: 0 14px; color: var(--gold); font-weight: 700; }
+.zones-note { margin-top: 20px; font-size: 15px; color: var(--text-mute); }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list { display: grid; gap: 10px; }
+.faq-list details {
+  background: var(--surface); border-radius: var(--r-sm);
+  box-shadow: var(--sh-sm); overflow: hidden;
+}
+.faq-list summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  min-height: 44px; padding: 18px 22px; cursor: pointer; list-style: none;
+  font-family: var(--display); font-size: 16.5px; font-weight: 700;
+  color: var(--ink); letter-spacing: -.015em;
+  transition: color .2s var(--ease);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary:hover { color: var(--accent-deep); }
+.faq-list summary::after {
+  content: ""; flex: none; width: 10px; height: 10px;
+  border-right: 2px solid var(--text-mute); border-bottom: 2px solid var(--text-mute);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .3s var(--ease);
+}
+.faq-list details[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+.faq-list .answer { padding: 0 22px 20px; max-width: 70ch; font-size: 15.5px; color: var(--text-soft); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 64px); }
+/* Coordonnées en filets — label capitales + valeur en Bricolage. */
+.info { display: grid; gap: 18px; margin-top: 30px; }
+.info-row { border-top: 1px solid var(--line); padding-top: 16px; }
+.info-row > div > span { display: block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-mute); }
+.info-row b, .info-row a.big {
+  display: block; font-family: var(--display); font-size: 18px; font-weight: 700;
+  color: var(--ink); letter-spacing: -.02em; text-decoration: none; margin-top: 2px;
+}
+/* Le numéro de téléphone est LE geste que le site doit provoquer :
+   en marine + soulignement au survol, il se lit comme un lien à appeler. */
+.info-row a.big { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: var(--accent-deep); }
+.info-row a.big::after { content: "›"; font-weight: 700; opacity: .6; transition: transform .2s var(--ease); }
+.info-row a.big:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.info-row a.big:hover::after { transform: translateX(3px); }
+.info-row small { display: block; margin-top: 3px; font-size: 14px; color: var(--text-mute); }
+
+.form { background: var(--surface); border-radius: var(--r-lg); padding: clamp(24px, 3vw, 34px); box-shadow: var(--sh-lg); }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.field .req { color: var(--danger); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px;
+  font-family: var(--font); font-size: 15.5px; color: var(--ink);
+  background: var(--bg); border: 0; border-radius: var(--r-xs);
+  box-shadow: inset 0 0 0 1px var(--line);
+  -webkit-appearance: none; appearance: none;
+  transition: box-shadow .2s var(--ease), background .2s var(--ease);
+}
+.field textarea { min-height: 112px; resize: vertical; }
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235f6a7c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  background: var(--surface); box-shadow: inset 0 0 0 2px var(--accent);
+  outline: none;
+}
+.field .err { display: none; font-size: 13px; color: var(--danger); margin-top: 6px; }
+.field.invalid input, .field.invalid select, .field.invalid textarea { box-shadow: inset 0 0 0 2px var(--danger); background: var(--danger-tint); }
+.field.invalid .err { display: block; }
+.form .btn { width: 100%; }
+.form-foot { margin-top: 12px; font-size: 13px; color: var(--text-mute); text-align: center; }
+
+.form-state { display: none; text-align: center; padding: 24px 8px; }
+.form-state.show { display: block; }
+.form-state .ico {
+  width: 52px; height: 52px; border-radius: 16px; margin: 0 auto 14px;
+  display: grid; place-items: center; background: var(--accent-tint); color: var(--accent-deep);
+}
+.form-state.is-error .ico { background: var(--danger-tint); color: var(--danger); }
+.form-state b { display: block; font-family: var(--display); font-size: 20px; color: var(--ink); letter-spacing: -.02em; margin-bottom: 6px; }
+.form-state p { font-size: 15px; color: var(--text-soft); margin-bottom: 16px; }
+/* Repli téléphone : un formulaire cassé ne doit jamais coûter un chantier */
+.form-state .fallback-tel {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--display); font-size: 22px; font-weight: 700;
+  color: var(--accent-deep); text-decoration: none; letter-spacing: -.02em;
+}
+.spinner {
+  width: 16px; height: 16px; border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, .35); border-top-color: #fff;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: var(--navy-2); color: rgba(255, 255, 255, .6); padding-block: clamp(48px, 6vw, 72px) 26px; }
+.footer .brand-txt b, .footer .brand-txt span { color: #fff; }
+.footer .brand-txt span { color: rgba(255, 255, 255, .55); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.footer-brand p { margin-top: 16px; font-size: 15px; color: rgba(255, 255, 255, .55); max-width: 32ch; }
+.footer h3 { font-family: var(--font); font-size: 12px; letter-spacing: .13em; text-transform: uppercase; color: #fff; font-weight: 600; margin-bottom: 14px; }
+.footer ul { list-style: none; display: grid; gap: 2px; }
+/* inline-flex + min-height 44px : cibles tactiles conformes. */
+.footer a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: rgba(255, 255, 255, .6); text-decoration: none; font-size: 14.5px;
+  transition: color .2s var(--ease);
+}
+.footer a:hover, .footer a:visited:hover { color: #fff; }
+.footer a:visited { color: rgba(255, 255, 255, .6); }
+.footer-bot { padding-top: 22px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 13px; color: rgba(255, 255, 255, .42); }
+
+/* ============================================================
+   CALLBAR MOBILE
+   ============================================================ */
+.callbar {
+  position: fixed; inset: auto 0 0; z-index: 55; display: none; gap: 10px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(13, 19, 33, .93);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, .1);
+  transform: translateY(110%); transition: transform .35s var(--ease);
+}
+.callbar.show { transform: none; }
+.callbar .btn { flex: 1; min-height: 46px; font-size: 14.5px; }
+
+/* ============================================================
+   AVIS (Google)
+   ============================================================ */
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 16px; line-height: 1; }
+.rating-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 18px;
+  font-size: 15px; color: var(--text-soft);
+}
+.rating-badge b { color: var(--ink); font-weight: 700; }
+.reviews-foot { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+/* ============================================================
+   REVEAL — amélioration progressive.
+   Le masquage n'est appliqué que si <html class="js">. Sans JS, le
+   contenu reste visible : une page qui dépend du JS est une page blanche.
+   ============================================================ */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal.d1 { transition-delay: .08s; }
+.js .reveal.d2 { transition-delay: .16s; }
+.js .reveal.d3 { transition-delay: .24s; }
+/* Le hero est au-dessus de la ligne de flottaison : il s'anime tout de
+   suite, sans attendre l'observateur. */
+.js .hero .reveal { opacity: 1; transform: none; animation: heroIn .7s var(--ease) both; }
+.js .hero .reveal.d1 { animation-delay: .08s; }
+.js .hero .reveal.d2 { animation-delay: .16s; }
+.js .hero .reveal.d3 { animation-delay: .24s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .split, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .bento { grid-auto-rows: 210px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .nav-links, .nav-tel { display: none; }
+  .burger { display: flex; }
+  .nav-cta .btn { display: none; }
+  /* La marque seule suffit ici ; le descripteur reste dans le footer,
+     le <title> et le schema.org. */
+  .brand-txt span { display: none; }
+  .brand-txt b { font-size: 16px; }
+
+  /* position:fixed hors du flux de la nav + pointer-events:auto : la nav est
+     en pointer-events:none, le menu en héritait et ses liens étaient inertes. */
+  .mobile-menu {
+    position: fixed; inset: 78px 16px auto; z-index: 59;
+    display: none; flex-direction: column; gap: 4px;
+    padding: 12px; border-radius: var(--r-md);
+    background: rgba(13, 19, 33, .97);
+    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), var(--sh-lg);
+    list-style: none; pointer-events: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: flex; align-items: center; min-height: 48px; padding-inline: 14px;
+    border-radius: var(--r-xs); color: rgba(255, 255, 255, .88);
+    text-decoration: none; font-size: 16px; font-weight: 500;
+  }
+  .mobile-menu a:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+
+  .bento { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .b-card, .b-card.feat { grid-column: span 1; grid-row: span 1; }
+  .b-card.feat { grid-row: span 1; }
+}
+
+@media (max-width: 640px) {
+  /* svh, pas vh : la barre d'URL mobile mange le vh */
+  .hero { min-height: 88svh; padding-top: 92px; }
+  /* En portrait, la version mobile (cadrage vertical) place le peintre
+     dans la moitié haute : on centre. */
+  .hero-media video, .hero-media img { object-position: center 30%; }
+  /* En portrait, le titre occupe le milieu du cadre — pile sur le mur
+     blanc. On remonte le voile sans jamais l'appliquer partout. */
+  .hero-media::after {
+    background:
+      linear-gradient(to top, rgba(10, 16, 28, .96) 0%, rgba(10, 16, 28, .88) 34%, rgba(10, 16, 28, .66) 62%, rgba(10, 16, 28, .3) 86%, rgba(10, 16, 28, .1) 100%),
+      linear-gradient(to bottom, rgba(10, 16, 28, .7) 0%, rgba(10, 16, 28, .3) 10%, rgba(10, 16, 28, 0) 20%);
+  }
+  .hero-label { font-size: 12.5px; padding: 7px 13px; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { width: 100%; }
+
+  .steps { grid-template-columns: 1fr; }
+  .also { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bot { flex-direction: column; gap: 6px; }
+  .callbar { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .js .reveal, .reveal, .js .hero .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
+
+@media print {
+  .site-nav, .callbar, .hero-media, .hero-wave { display: none; }
+  /* Les navigateurs n'impriment pas les fonds : sans ces retours au noir,
+     tout le texte blanc du hero et de la section sombre sortirait invisible. */
+  .hero { background: none; min-height: 0; padding-top: 0; }
+  .hero h1, .hero h1 em, .hero-sub, .hero-label { color: #000; text-shadow: none; }
+  .section.dark, .dark .lead, .feat-item > div > span { color: #333; }
+  .dark .h2, .feat-item b { color: #000; }
+  /* Sans ça, la page s'imprime BLANCHE : le reveal laisse tout à opacity:0. */
+  .js .reveal, .reveal { opacity: 1 !important; transform: none !important; }
+  .faq-list details { break-inside: avoid; }
+  .faq-list .answer { display: block !important; }
+}
