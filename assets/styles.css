@@ -651,7 +651,10 @@ h2, h3 { text-wrap: balance; }
   .mobile-menu a:hover { background: rgba(255, 255, 255, .08); color: #fff; }
 
   .bento { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-  .b-card, .b-card.feat { grid-column: span 1; grid-row: span 1; }
+  /* .wide inclus obligatoirement : son span 6 sur une grille à 1 colonne
+     créerait 5 colonnes implicites et écraserait TOUTES les cartes en
+     lamelles (vu en prod mobile). */
+  .b-card, .b-card.feat, .b-card.wide { grid-column: span 1; grid-row: span 1; }
   .b-card.feat { grid-row: span 1; }
 }
 
