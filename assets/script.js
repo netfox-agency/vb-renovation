@@ -1,6 +1,29 @@
-/* Debord Rénovation — interactions. Statique, sans dépendance. */
+/* VB Rénovation — interactions. Statique, sans dépendance. */
 (function () {
   'use strict';
+
+  /* ---------- Pré-remplissage du devis depuis les pages services ----------
+     Les CTA des pages internes pointent vers /?devis=<cle>#devis : on
+     présélectionne la prestation correspondante dans le formulaire. */
+  var devisMap = {
+    'ravalement': 'Ravalement de façade',
+    'peinture-facade': 'Peinture de façade',
+    'enduit': 'Enduit / reprises',
+    'interieur': 'Peinture intérieure',
+    'nettoyage': 'Nettoyage / hydrofuge',
+    'fissures': 'Fissures / imperméabilisation',
+    'volets': 'Volets & boiseries',
+    'syndic': 'Copropriété / syndic'
+  };
+  try {
+    var devisKey = new URLSearchParams(window.location.search).get('devis');
+    var presta = document.getElementById('f-presta');
+    if (devisKey && presta && devisMap[devisKey]) {
+      for (var i = 0; i < presta.options.length; i++) {
+        if (presta.options[i].text === devisMap[devisKey]) { presta.selectedIndex = i; break; }
+      }
+    }
+  } catch (e) { /* URLSearchParams absent : tant pis, le select reste vide */ }
 
   /* ============================================================
      SUIVI DES CONVERSIONS (Google Ads / GA4 / Meta via GTM)
@@ -96,15 +119,20 @@
   function onScroll() {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 24);
 
-    // Callbar : dès que le hero est quitté (0.35 au lieu de 0.6, pour ne pas
-    // laisser de zone sans CTA en milieu de page), mais masquée quand le
-    // formulaire est à l'écran (inutile de proposer d'appeler quand on écrit).
-    if (callbar && devis) {
-      var hero = document.querySelector('.hero');
+    // Callbar : dès que le hero est quitté, mais masquée quand le formulaire
+    // est à l'écran (inutile de proposer d'appeler quand on écrit).
+    // Les pages internes n'ont ni #devis ni .hero : leur bandeau est
+    // .page-hero et il n'y a pas de formulaire à protéger — sans ce repli,
+    // la callbar (le CTA mobile principal) n'y apparaîtrait jamais.
+    if (callbar) {
+      var hero = document.querySelector('.hero, .page-hero');
       var heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight * 0.35;
       var past = heroBottom < window.innerHeight * 0.5;
-      var box = devis.getBoundingClientRect();
-      var formVisible = box.top < window.innerHeight && box.bottom > 0;
+      var formVisible = false;
+      if (devis) {
+        var box = devis.getBoundingClientRect();
+        formVisible = box.top < window.innerHeight && box.bottom > 0;
+      }
       callbar.classList.toggle('show', past && !formVisible);
     }
   }

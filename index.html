@@ -4,14 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VB Rénovation · Ravalement de façade &amp; peinture à Lannion (22)</title>
-<meta name="description" content="VB Rénovation : artisan peintre en bâtiment à Lannion. Ravalement de façade, peinture extérieure et intérieure, enduits, nettoyage et hydrofuge, traitement des fissures. Trégor et Côtes-d'Armor. Devis gratuit.">
+<meta name="description" content="Ravalement de façade, peinture et hydrofuge à Lannion et dans le Trégor. VB Rénovation, artisan peintre en bâtiment. Diagnostic et devis gratuits.">
 <meta name="robots" content="index, follow, max-image-preview:large">
+<!-- Canonical sur le domaine de service actuel : à basculer (avec 301) le
+     jour du passage au domaine définitif. -->
+<link rel="canonical" href="https://vb-renovation.netfox-france.workers.dev/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="VB Rénovation">
 <meta property="og:title" content="VB Rénovation · Ravalement de façade &amp; peinture à Lannion">
 <meta property="og:description" content="Artisan peintre en bâtiment à Lannion. Ravalement, peinture, enduits, hydrofuge. Devis gratuit dans tout le Trégor.">
+<meta property="og:url" content="https://vb-renovation.netfox-france.workers.dev/">
+<meta property="og:image" content="https://vb-renovation.netfox-france.workers.dev/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/logo.png" type="image/png">
@@ -22,13 +29,14 @@
      reveal qui ne viendra jamais. -->
 <script>document.documentElement.classList.add('js');</script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Polices auto-hébergées (déclarées dans styles.css) : préchargées pour
+     éviter le FOUT, plus aucune requête Google Fonts. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/BricolageGrotesque-600-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-400-latin.woff2" crossorigin>
 <!-- Le hero est l'élément LCP : préchargé pour qu'il parte avec le HTML. -->
-<link rel="preload" as="image" href="assets/img/hero-ravalement-lannion.jpg" media="(min-width: 641px)">
-<link rel="preload" as="image" href="assets/img/hero-ravalement-lannion-mob.jpg" media="(max-width: 640px)">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=2">
+<link rel="preload" as="image" href="assets/img/hero-ravalement-lannion.webp" media="(min-width: 641px)">
+<link rel="preload" as="image" href="assets/img/hero-ravalement-lannion-mob.webp" media="(max-width: 640px)">
+<link rel="stylesheet" href="assets/styles.css?v=3">
 </head>
 <body>
 
@@ -79,8 +87,8 @@
        du client — ne jamais le prétendre dans l'alt). -->
   <div class="hero-media">
     <picture>
-      <source srcset="assets/img/hero-ravalement-lannion-mob.jpg" media="(max-width: 640px)">
-      <img src="assets/img/hero-ravalement-lannion.jpg" width="1800" height="1080" fetchpriority="high"
+      <source srcset="assets/img/hero-ravalement-lannion-mob.webp" media="(max-width: 640px)">
+      <img src="assets/img/hero-ravalement-lannion.webp" width="1800" height="1080" fetchpriority="high"
            alt="Peintre en bâtiment appliquant une peinture de façade au rouleau depuis une nacelle, devant un mur fraîchement peint.">
     </picture>
   </div>
@@ -122,7 +130,7 @@
       <p class="materials">Enduits respirants · Peintures microporeuses · Hydrofuge de façade</p>
     </div>
     <figure class="intro-visual reveal d1">
-      <img src="assets/img/intro-enduiseur.jpg" width="1400" height="933" loading="lazy" decoding="async"
+      <img src="assets/img/intro-enduiseur.webp" width="1400" height="933" loading="lazy" decoding="async"
            alt="Enduiseur en tenue blanche lissant un mur fraîchement enduit, casque et masque de protection.">
       <figcaption>La préparation du support, cœur du métier</figcaption>
     </figure>
@@ -139,8 +147,8 @@
     </div>
 
     <div class="bento">
-      <a class="b-card feat reveal" href="#devis">
-        <img src="assets/img/s-ravalement-facade.jpg" width="733" height="1100" loading="lazy" decoding="async" alt="Façade ancienne ravalée et repeinte, moulures et corniches soulignées par la lumière du soir.">
+      <a class="b-card feat reveal" href="ravalement-facade-lannion">
+        <img src="assets/img/s-ravalement-facade.webp" width="733" height="1100" loading="lazy" decoding="async" alt="Façade ancienne ravalée et repeinte, moulures et corniches soulignées par la lumière du soir.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">01</span>
@@ -150,8 +158,8 @@
         </div>
       </a>
 
-      <a class="b-card reveal d1" href="#devis">
-        <img src="assets/img/s-peinture-facade.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Rouleau de peinture appliquant une peinture claire sur un mur extérieur texturé.">
+      <a class="b-card reveal d1" href="peinture-facade-lannion">
+        <img src="assets/img/s-peinture-facade.webp" width="900" height="600" loading="lazy" decoding="async" alt="Rouleau de peinture appliquant une peinture claire sur un mur extérieur texturé.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">02</span>
@@ -160,8 +168,8 @@
         </div>
       </a>
 
-      <a class="b-card reveal d2" href="#devis">
-        <img src="assets/img/s-enduit-reprises.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Façadier en nacelle reprenant l'enduit abîmé d'un immeuble.">
+      <a class="b-card reveal d2" href="enduit-facade-lannion">
+        <img src="assets/img/s-enduit-reprises.webp" width="900" height="600" loading="lazy" decoding="async" alt="Façadier en nacelle reprenant l'enduit abîmé d'un immeuble.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">03</span>
@@ -170,8 +178,8 @@
         </div>
       </a>
 
-      <a class="b-card reveal" href="#devis">
-        <img src="assets/img/s-peinture-interieure.jpg" width="733" height="1100" loading="lazy" decoding="async" alt="Peintre appliquant une peinture blanche au rouleau sur un mur intérieur préparé.">
+      <a class="b-card reveal" href="peinture-interieure-lannion">
+        <img src="assets/img/s-peinture-interieure.webp" width="733" height="1100" loading="lazy" decoding="async" alt="Peintre appliquant une peinture blanche au rouleau sur un mur intérieur préparé.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">04</span>
@@ -180,8 +188,8 @@
         </div>
       </a>
 
-      <a class="b-card reveal d1" href="#devis">
-        <img src="assets/img/s-nettoyage-facade.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="Nettoyage d'une façade au nettoyeur basse pression par un opérateur équipé d'une visière.">
+      <a class="b-card reveal d1" href="nettoyage-demoussage-facade-lannion">
+        <img src="assets/img/s-nettoyage-facade.webp" width="825" height="1100" loading="lazy" decoding="async" alt="Nettoyage d'une façade au nettoyeur basse pression par un opérateur équipé d'une visière.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">05</span>
@@ -190,8 +198,8 @@
         </div>
       </a>
 
-      <a class="b-card wide reveal d2" href="#devis">
-        <img src="assets/img/s-fissures-etancheite.jpg" width="900" height="506" loading="lazy" decoding="async" alt="Truelle chargée d'enduit devant un mur en cours de reprise.">
+      <a class="b-card wide reveal d2" href="fissures-impermeabilisation-lannion">
+        <img src="assets/img/s-fissures-etancheite.webp" width="900" height="506" loading="lazy" decoding="async" alt="Truelle chargée d'enduit devant un mur en cours de reprise.">
         <span class="b-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div class="b-body">
           <span class="b-num">06</span>
@@ -254,7 +262,7 @@
       </div>
     </div>
     <figure class="visual reveal d2">
-      <img src="assets/img/savoir-faire.jpg" width="801" height="1200" loading="lazy" decoding="async"
+      <img src="assets/img/savoir-faire.webp" width="801" height="1200" loading="lazy" decoding="async"
            alt="Main gantée talochant un mur en lumière rasante, geste précis de l'enduiseur.">
       <figcaption class="badge">Le geste juste, à chaque couche</figcaption>
     </figure>
@@ -325,9 +333,9 @@
       <p class="lead">Basés route de Tréguier à Lannion, nous intervenons dans tout le Trégor, de la Côte de Granit Rose aux terres, et au-delà selon les chantiers.</p>
     </div>
     <ul class="towns reveal">
-      <li>Lannion</li><li>Perros-Guirec</li><li>Trébeurden</li><li>Trégastel</li>
+      <li>Lannion</li><li><a href="peintre-perros-guirec">Perros-Guirec</a></li><li><a href="peintre-trebeurden">Trébeurden</a></li><li><a href="peintre-tregastel">Trégastel</a></li>
       <li>Pleumeur-Bodou</li><li>Louannec</li><li>Ploubezre</li><li>Ploumilliau</li>
-      <li>Plestin-les-Grèves</li><li>Tréguier</li><li>Penvénan</li><li>La Roche-Derrien</li>
+      <li>Plestin-les-Grèves</li><li><a href="peintre-treguier">Tréguier</a></li><li>Penvénan</li><li>La Roche-Derrien</li>
       <li>Cavan</li><li>Bégard</li><li>Plouaret</li><li>Paimpol</li><li>Guingamp</li>
     </ul>
     <p class="zones-note reveal">Votre commune n'est pas dans la liste ? Appelez-nous : nous étudions chaque demande.</p>
@@ -441,6 +449,7 @@
               <option>Nettoyage / hydrofuge</option>
               <option>Fissures / imperméabilisation</option>
               <option>Volets &amp; boiseries</option>
+              <option>Copropriété / syndic</option>
               <option>Autre demande</option>
             </select>
           </div>
@@ -490,12 +499,12 @@
       <div>
         <h3>Prestations</h3>
         <ul>
-          <li><a href="#services">Ravalement de façade</a></li>
-          <li><a href="#services">Peinture de façade</a></li>
-          <li><a href="#services">Enduit &amp; reprises</a></li>
-          <li><a href="#services">Peinture intérieure</a></li>
-          <li><a href="#services">Nettoyage &amp; hydrofuge</a></li>
-          <li><a href="#services">Fissures &amp; imperméabilisation</a></li>
+          <li><a href="ravalement-facade-lannion">Ravalement de façade</a></li>
+          <li><a href="peinture-facade-lannion">Peinture de façade</a></li>
+          <li><a href="enduit-facade-lannion">Enduit &amp; reprises</a></li>
+          <li><a href="peinture-interieure-lannion">Peinture intérieure</a></li>
+          <li><a href="nettoyage-demoussage-facade-lannion">Nettoyage &amp; hydrofuge</a></li>
+          <li><a href="fissures-impermeabilisation-lannion">Fissures &amp; imperméabilisation</a></li>
         </ul>
       </div>
       <div>
@@ -503,9 +512,10 @@
         <ul>
           <li><a href="tel:+33604107112">06 04 10 71 12</a></li>
           <li><a href="#devis">Demander un devis</a></li>
+          <li><a href="prix-ravalement-facade">Prix &amp; fourchettes</a></li>
+          <li><a href="aides-ravalement-facade">Aides &amp; subventions</a></li>
           <li><a href="#zones">Zones d'intervention</a></li>
-          <li><a href="#avis">Avis clients</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="mentions-legales">Mentions légales</a></li>
         </ul>
       </div>
     </div>
@@ -529,11 +539,43 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "HousePainter",
-      "@id": "#business",
+      "@type": "WebSite",
+      "@id": "https://vb-renovation.netfox-france.workers.dev/#website",
+      "url": "https://vb-renovation.netfox-france.workers.dev/",
       "name": "VB Rénovation",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://vb-renovation.netfox-france.workers.dev/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vb-renovation.netfox-france.workers.dev/#webpage",
+      "url": "https://vb-renovation.netfox-france.workers.dev/",
+      "name": "VB Rénovation · Ravalement de façade & peinture à Lannion (22)",
+      "description": "Ravalement de façade, peinture et hydrofuge à Lannion et dans le Trégor. VB Rénovation, artisan peintre en bâtiment. Diagnostic et devis gratuits.",
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "https://vb-renovation.netfox-france.workers.dev/#website"
+      },
+      "about": {
+        "@id": "https://vb-renovation.netfox-france.workers.dev/#business"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://vb-renovation.netfox-france.workers.dev/assets/img/og.jpg"
+      }
+    },
+    {
+      "@type": "HousePainter",
+      "@id": "https://vb-renovation.netfox-france.workers.dev/#business",
+      "name": "VB Rénovation",
+      "url": "https://vb-renovation.netfox-france.workers.dev/",
       "description": "Artisan peintre en bâtiment à Lannion : ravalement de façade, peinture extérieure et intérieure, enduits, nettoyage et hydrofuge de façade, traitement des fissures. Intervient dans tout le Trégor et les Côtes-d'Armor. Devis gratuit.",
       "telephone": "+33604107112",
+      "image": "https://vb-renovation.netfox-france.workers.dev/assets/img/og.jpg",
+      "logo": "https://vb-renovation.netfox-france.workers.dev/assets/img/logo.png",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=VB+R%C3%A9novation+80+Rte+de+Tr%C3%A9guier+22300+Lannion",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "80 Route de Tréguier",
@@ -542,26 +584,84 @@
         "addressRegion": "Côtes-d'Armor",
         "addressCountry": "FR"
       },
-      "geo": { "@type": "GeoCoordinates", "latitude": 48.741, "longitude": -3.446 },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.741,
+        "longitude": -3.446
+      },
       "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Côtes-d'Armor" },
-        { "@type": "City", "name": "Lannion" },
-        { "@type": "City", "name": "Perros-Guirec" },
-        { "@type": "City", "name": "Trébeurden" },
-        { "@type": "City", "name": "Trégastel" },
-        { "@type": "City", "name": "Pleumeur-Bodou" },
-        { "@type": "City", "name": "Louannec" },
-        { "@type": "City", "name": "Ploubezre" },
-        { "@type": "City", "name": "Ploumilliau" },
-        { "@type": "City", "name": "Plestin-les-Grèves" },
-        { "@type": "City", "name": "Tréguier" },
-        { "@type": "City", "name": "Penvénan" },
-        { "@type": "City", "name": "La Roche-Derrien" },
-        { "@type": "City", "name": "Cavan" },
-        { "@type": "City", "name": "Bégard" },
-        { "@type": "City", "name": "Plouaret" },
-        { "@type": "City", "name": "Paimpol" },
-        { "@type": "City", "name": "Guingamp" }
+        {
+          "@type": "AdministrativeArea",
+          "name": "Côtes-d'Armor"
+        },
+        {
+          "@type": "City",
+          "name": "Lannion"
+        },
+        {
+          "@type": "City",
+          "name": "Perros-Guirec"
+        },
+        {
+          "@type": "City",
+          "name": "Trébeurden"
+        },
+        {
+          "@type": "City",
+          "name": "Trégastel"
+        },
+        {
+          "@type": "City",
+          "name": "Pleumeur-Bodou"
+        },
+        {
+          "@type": "City",
+          "name": "Louannec"
+        },
+        {
+          "@type": "City",
+          "name": "Ploubezre"
+        },
+        {
+          "@type": "City",
+          "name": "Ploumilliau"
+        },
+        {
+          "@type": "City",
+          "name": "Plestin-les-Grèves"
+        },
+        {
+          "@type": "City",
+          "name": "Tréguier"
+        },
+        {
+          "@type": "City",
+          "name": "Penvénan"
+        },
+        {
+          "@type": "City",
+          "name": "La Roche-Derrien"
+        },
+        {
+          "@type": "City",
+          "name": "Cavan"
+        },
+        {
+          "@type": "City",
+          "name": "Bégard"
+        },
+        {
+          "@type": "City",
+          "name": "Plouaret"
+        },
+        {
+          "@type": "City",
+          "name": "Paimpol"
+        },
+        {
+          "@type": "City",
+          "name": "Guingamp"
+        }
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -574,35 +674,146 @@
         "@type": "OfferCatalog",
         "name": "Prestations",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ravalement de façade" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture de façade" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enduit et reprises" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture intérieure" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nettoyage et hydrofuge de façade" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Traitement des fissures et imperméabilisation" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture de volets et boiseries" } }
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ravalement de façade",
+              "url": "https://vb-renovation.netfox-france.workers.dev/ravalement-facade-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Peinture de façade",
+              "url": "https://vb-renovation.netfox-france.workers.dev/peinture-facade-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Enduit et reprises de façade",
+              "url": "https://vb-renovation.netfox-france.workers.dev/enduit-facade-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Peinture intérieure",
+              "url": "https://vb-renovation.netfox-france.workers.dev/peinture-interieure-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Nettoyage, démoussage et hydrofuge de façade",
+              "url": "https://vb-renovation.netfox-france.workers.dev/nettoyage-demoussage-facade-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Traitement des fissures et imperméabilisation",
+              "url": "https://vb-renovation.netfox-france.workers.dev/fissures-impermeabilisation-lannion"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Peinture de volets et boiseries"
+            }
+          }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "#faq",
+      "@id": "https://vb-renovation.netfox-france.workers.dev/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "Quand faut-il ravaler sa façade ?", "acceptedAnswer": { "@type": "Answer", "text": "Plusieurs signes ne trompent pas : enduit qui cloque ou qui farine, fissures, traces vertes ou noires, peinture qui s'écaille, joints creusés. En Bretagne, l'humidité accélère tout. Nous proposons un diagnostic gratuit pour évaluer l'état réel de votre façade." } },
-        { "@type": "Question", "name": "Le ravalement de façade est-il obligatoire ?", "acceptedAnswer": { "@type": "Answer", "text": "Le Code de la construction impose de maintenir les façades en bon état. Dans certaines communes, la mairie peut prescrire un ravalement, en pratique environ tous les dix ans." } },
-        { "@type": "Question", "name": "Faut-il une autorisation en mairie pour ravaler ?", "acceptedAnswer": { "@type": "Answer", "text": "Dans la plupart des cas, un ravalement qui modifie l'aspect de la façade demande une déclaration préalable de travaux, et les teintes doivent respecter les règles locales d'urbanisme. Nous vous aidons à préparer le dossier." } },
-        { "@type": "Question", "name": "Quel est le prix d'un ravalement de façade à Lannion ?", "acceptedAnswer": { "@type": "Answer", "text": "Le prix dépend de la surface, de l'état du support, de la hauteur et de la finition choisie. Le diagnostic et le devis sont gratuits, détaillés et sans engagement." } },
-        { "@type": "Question", "name": "Combien de temps durent les travaux ?", "acceptedAnswer": { "@type": "Answer", "text": "Une maison se ravale en général en une à deux semaines selon la surface, la météo et les reprises à réaliser. Nous annonçons un calendrier avant le chantier." } },
-        { "@type": "Question", "name": "Quelle est la meilleure période pour ravaler en Bretagne ?", "acceptedAnswer": { "@type": "Answer", "text": "Du printemps au début de l'automne, quand les supports sont secs et les températures douces. Selon les travaux, nous intervenons une grande partie de l'année." } },
-        { "@type": "Question", "name": "Peinture, enduit ou hydrofuge : que choisir ?", "acceptedAnswer": { "@type": "Answer", "text": "Tout dépend de l'état du mur. Un support sain peut se contenter d'un nettoyage et d'un hydrofuge, un enduit fatigué demande des reprises avant finition. C'est le diagnostic qui décide : nous recommandons la solution adaptée, pas la plus chère." } },
-        { "@type": "Question", "name": "Travaillez-vous sur le granit et le bâti ancien ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Le bâti du Trégor mélange granit, moellons et enduits anciens : des murs qui doivent respirer. Nous utilisons des produits adaptés à chaque support." } },
-        { "@type": "Question", "name": "Faites-vous aussi la peinture intérieure ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Murs, plafonds, boiseries : la même exigence de préparation qu'en façade, avec des chantiers propres et un rendu net." } }
+        {
+          "@type": "Question",
+          "name": "Quand faut-il ravaler sa façade ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plusieurs signes ne trompent pas : enduit qui cloque ou qui farine, fissures, traces vertes ou noires, peinture qui s'écaille, joints creusés. En Bretagne, l'humidité accélère tout. Nous proposons un diagnostic gratuit pour évaluer l'état réel de votre façade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le ravalement de façade est-il obligatoire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le Code de la construction impose de maintenir les façades en bon état. Dans certaines communes, la mairie peut prescrire un ravalement, en pratique environ tous les dix ans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une autorisation en mairie pour ravaler ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dans la plupart des cas, un ravalement qui modifie l'aspect de la façade demande une déclaration préalable de travaux, et les teintes doivent respecter les règles locales d'urbanisme. Nous vous aidons à préparer le dossier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le prix d'un ravalement de façade à Lannion ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le prix dépend de la surface, de l'état du support, de la hauteur et de la finition choisie. Le diagnostic et le devis sont gratuits, détaillés et sans engagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps durent les travaux ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une maison se ravale en général en une à deux semaines selon la surface, la météo et les reprises à réaliser. Nous annonçons un calendrier avant le chantier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la meilleure période pour ravaler en Bretagne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Du printemps au début de l'automne, quand les supports sont secs et les températures douces. Selon les travaux, nous intervenons une grande partie de l'année."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peinture, enduit ou hydrofuge : que choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tout dépend de l'état du mur. Un support sain peut se contenter d'un nettoyage et d'un hydrofuge, un enduit fatigué demande des reprises avant finition. C'est le diagnostic qui décide : nous recommandons la solution adaptée, pas la plus chère."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Travaillez-vous sur le granit et le bâti ancien ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le bâti du Trégor mélange granit, moellons et enduits anciens : des murs qui doivent respirer. Nous utilisons des produits adaptés à chaque support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faites-vous aussi la peinture intérieure ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Murs, plafonds, boiseries : la même exigence de préparation qu'en façade, avec des chantiers propres et un rendu net."
+          }
+        }
       ]
     }
   ]
 }
 </script>
 
-<script src="assets/script.js?v=1" defer></script>
+<script src="assets/script.js?v=2" defer></script>
 </body>
 </html>

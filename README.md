@@ -1,6 +1,6 @@
 # VB Rénovation — site vitrine
 
-Site one-page statique (HTML/CSS/JS pur, aucun build) pour **VB Rénovation**,
+Site vitrine statique (HTML/CSS/JS pur, aucun build) pour **VB Rénovation**,
 peintre en bâtiment / ravalement de façade à **Lannion (22300)**.
 
 - Adresse : 80 Route de Tréguier, 22300 Lannion
@@ -24,31 +24,42 @@ or `#b9882c`**, fond blanc minéral. Séparateurs de section en **diagonale**
 
 ## TODO avant mise en ligne (à compléter avec le client)
 
+Le plan complet (audit SEO + actions client priorisées) est dans `SEO-PLAN.md`.
+Les points bloquants :
+
 1. **Clé Web3Forms** : remplacer `REMPLACER_PAR_VOTRE_CLE_WEB3FORMS` dans
-   `index.html` (tant que le placeholder est là, le formulaire bascule sur le
-   repli téléphone). Tester par un envoi réel depuis un vrai navigateur
-   (l'anti-bot Web3Forms bloque les tests headless).
-2. **Domaine** : ajouter `<link rel="canonical">`, `og:url`, `og:image`
-   (assets/img/og.jpg est prêt, 1200×630), `sitemap.xml`, `robots.txt`,
-   `llms.txt` et l'`@id`/`url` du schema.org une fois le domaine choisi.
+   `index.html` — sans elle, toute demande de devis est perdue (le formulaire
+   bascule sur le repli téléphone). Tester par un envoi réel depuis un vrai
+   navigateur (l'anti-bot Web3Forms bloque les tests headless).
+2. **Domaine définitif** : remplacer `vb-renovation.netfox-france.workers.dev`
+   dans les 13 pages + `sitemap.xml` + `robots.txt` + `llms.txt`, puis 301.
 3. **Logo HD** : le fichier fourni fait 160×160 (issu de la fiche Google).
-   Demander l'original en haute résolution pour l'og:image et le favicon.
-4. **À confirmer avec le client** (rien n'a été inventé, mais à valider) :
-   - assurance décennale (compagnie + n° de police, cité dans « Artisan assuré »)
-   - SIRET, forme juridique, nom du gérant (mentions légales)
-   - e-mail de contact
-   - horaires d'ouverture (la fiche Google indique « Ferme à 18:00 »)
-   - liste exacte des communes desservies
-   - Place ID de la fiche Google pour les boutons « Laisser un avis »
-     (aujourd'hui : lien Maps par requête nom+adresse)
-5. **Avis Google** : intégrer les 3 avis mot pour mot depuis la fiche
-   (section prévue, aucun avis inventé), et tenir `aggregateRating` à jour.
-6. **Vraies photos de chantiers** : les images actuelles sont des
-   illustrations Pexels (licence libre, créditées dans les mentions légales).
-   Remplacer progressivement par les chantiers VB Rénovation (section
-   « Réalisations » à ajouter à ce moment-là).
+4. **À confirmer avec le client** : SIRET, forme juridique, gérant, e-mail,
+   assurance décennale (compagnie + n° de police), horaires.
+5. **Fiche Google à revendiquer** (non revendiquée à ce jour) → récupérer le
+   Place ID pour le lien « laisser un avis », et intégrer les 3 avis mot pour
+   mot. Aucun avis inventé.
+6. **Vraies photos de chantiers** (avant/après) : les images actuelles sont des
+   illustrations Pexels, créditées dans les mentions légales.
 7. **GTM** : remplacer `GTM-XXXXXXX` dans `assets/script.js` pour activer le
    suivi des conversions (dataLayer `generate_lead` + `phone_call` déjà câblés).
+8. **Fourchettes de prix** (`prix-ravalement-facade`, pages services) : repères
+   de marché, à faire valider par le client.
+
+## Architecture
+
+13 pages indexables en hub-and-spoke : accueil + 6 pages prestations + 2 pages
+informationnelles (prix, aides) + 4 pages communes. Chaque page a son propre
+title/meta/H1, un contenu unique, une FAQ, un schema Service + BreadcrumbList
+(+ FAQPage) et un maillage vers les pages voisines. Les CTA des pages internes
+pointent vers `/?devis=<cle>#devis`, qui pré-remplit le formulaire.
+
+## Fichiers d'infrastructure
+
+- `_headers` : cache long sur `/assets/*` (versionnés), en-têtes de sécurité.
+- `wrangler.jsonc` : URLs propres + page 404 réellement servie.
+- `.assetsignore` : empêche `.git` et les docs internes d'être servis.
+- `robots.txt` / `sitemap.xml` / `llms.txt` : à re-générer au changement de domaine.
 
 ## Sources des photos (Pexels, licence libre)
 

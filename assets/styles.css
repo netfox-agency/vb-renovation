@@ -1,4 +1,141 @@
 /* ============================================================
+   Polices auto-hébergées (variable fonts, ex-Google Fonts) :
+   zéro requête tierce, font-display swap.
+   ============================================================ */
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/BricolageGrotesque-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/Inter-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ============================================================
    VB Rénovation — Ravalement de façade & peinture à Lannion
    Structure héritée du système Bretonnet/Debord (bento, hero plein
    cadre, kickers à filet, Bricolage Grotesque + Inter) ; palette
@@ -704,4 +841,89 @@ h2, h3 { text-wrap: balance; }
   .js .reveal, .reveal { opacity: 1 !important; transform: none !important; }
   .faq-list details { break-inside: avoid; }
   .faq-list .answer { display: block !important; }
+}
+
+/* ============================================================
+   PAGES INTERNES (services, villes, prix, aides)
+   ============================================================ */
+.page-hero {
+  position: relative; background: var(--navy-1); color: #fff;
+  padding: clamp(140px, 16vw, 176px) 0 clamp(48px, 6vw, 72px);
+  overflow: hidden;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero::after {
+  /* La passe de rouleau, en pied de bandeau */
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(28px, 4vw, 48px);
+  background: var(--bg); clip-path: polygon(0 78%, 100% 0, 100% 100%, 0 100%);
+}
+.crumb { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; font-size: 13px; color: rgba(255,255,255,.55); }
+.crumb a { color: rgba(255,255,255,.75); text-decoration: none; }
+.crumb a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.crumb li:not(:last-child)::after { content: "›"; margin-left: 8px; color: rgba(255,255,255,.4); }
+.page-hero h1 {
+  color: #fff; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.02;
+  letter-spacing: -.03em; margin-top: 16px; max-width: 22ch;
+}
+.page-hero .lead { color: rgba(255,255,255,.78); max-width: 62ch; }
+.page-hero .hero-cta { margin-top: 26px; }
+
+/* Bande de confiance sous le hero de page : les 3 faits qui rassurent. */
+.trust-strip {
+  display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 26px;
+  font-size: 14px; color: rgba(255,255,255,.8);
+}
+.trust-strip span { display: inline-flex; align-items: center; gap: 8px; }
+.trust-strip .stars { font-size: 14px; color: var(--accent-bright); }
+
+/* Corps de page éditorial */
+.prose { max-width: 70ch; }
+.prose h2 { font-size: clamp(22px, 2.6vw, 30px); margin: 34px 0 10px; }
+.prose h3 { font-size: clamp(18px, 2vw, 22px); margin: 24px 0 8px; }
+.prose p { margin: 12px 0; color: var(--text-soft); }
+.prose ul { margin: 12px 0 12px 20px; color: var(--text-soft); }
+.prose li { margin: 6px 0; }
+.prose strong { color: var(--ink); }
+
+/* Tableau de fourchettes de prix : filets, pas de grille Excel. */
+.price-table { width: 100%; border-collapse: collapse; margin: 18px 0 6px; font-size: 15px; }
+.price-table th {
+  text-align: left; font-family: var(--font); font-size: 11.5px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-mute);
+  padding: 0 14px 10px 0;
+}
+.price-table td { border-top: 1px solid var(--line); padding: 12px 14px 12px 0; color: var(--text-soft); vertical-align: top; }
+.price-table td:first-child { color: var(--ink); font-weight: 600; }
+.price-table td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--accent-deep); font-weight: 600; }
+.price-note { font-size: 13.5px; color: var(--text-mute); margin-top: 10px; max-width: 70ch; }
+
+/* Maillage : cartes de liens sobres */
+.links-band { margin-top: clamp(36px, 5vw, 56px); padding-top: 22px; border-top: 1px solid var(--line); }
+.links-band h2 { font-size: 19px; margin-bottom: 14px; }
+.link-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; list-style: none; }
+.link-cards a {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  min-height: 52px; padding: 12px 16px;
+  background: var(--surface); border-radius: var(--r-sm); box-shadow: var(--sh-sm);
+  color: var(--ink); font-weight: 600; font-size: 14.5px; text-decoration: none;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.link-cards a::after { content: "›"; color: var(--gold); font-weight: 700; }
+.link-cards a:hover { transform: translateY(-2px); box-shadow: var(--sh-lg); }
+
+/* Bande CTA de fin de page */
+.cta-band {
+  background: var(--navy-1); border-radius: var(--r-lg); box-shadow: var(--sh-lg);
+  padding: clamp(28px, 4vw, 44px); margin-top: clamp(40px, 6vw, 64px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
+}
+.cta-band b { display: block; font-family: var(--display); font-size: clamp(20px, 2.4vw, 27px); color: #fff; letter-spacing: -.02em; }
+.cta-band p { margin-top: 6px; font-size: 15px; color: rgba(255,255,255,.68); max-width: 46ch; }
+.cta-band .hero-cta { margin-top: 0; }
+
+@media (max-width: 860px) {
+  .link-cards { grid-template-columns: 1fr; }
+  .cta-band { flex-direction: column; align-items: flex-start; }
+  .cta-band .hero-cta { width: 100%; flex-direction: column; }
+  .cta-band .hero-cta .btn { width: 100%; }
 }

@@ -1,0 +1,17 @@
+{
+  // Cloudflare Workers static assets. Le nom doit correspondre au projet
+  // Cloudflare existant (vb-renovation.netfox-france.workers.dev).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vb-renovation",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": ".",
+    // URLs propres : /ravalement-facade-lannion sert la page .html et
+    // normalise les slashs (comportement déjà constaté en prod, figé ici
+    // pour ne pas dépendre du défaut de la plateforme).
+    "html_handling": "auto-trailing-slash",
+    // Sans ça, une URL inexistante renvoie un 404 au corps VIDE : la page
+    // 404.html du dépôt n'était pas servie.
+    "not_found_handling": "404-page"
+  }
+}
