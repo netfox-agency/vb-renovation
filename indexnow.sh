@@ -11,7 +11,7 @@ KEY="9530006e226540f899fd2445283c8b22"
 HOST=$(grep -m1 '<loc>' sitemap.xml | sed -E 's|.*https://([^/]+)/.*|\1|')
 
 if [ $# -ge 1 ]; then URLS="https://$HOST$1"
-else URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's|</\?loc>||g'); fi
+else URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -E 's|</?loc>||g'); fi
 
 LIST=$(echo "$URLS" | sed 's|.*|"&"|' | paste -sd, -)
 BODY="{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":[$LIST]}"
