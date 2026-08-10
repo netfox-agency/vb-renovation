@@ -84,6 +84,15 @@ sa FAQ, son schema.org, et un maillage vers les pages voisines.
   absolues, logo, image, plan, catalogue de prestations lié aux nouvelles pages.
 - **`.assetsignore`** : le dossier `.git` était servi publiquement, il ne l'est
   plus. **`wrangler.jsonc`** : la page 404 personnalisée renvoyait un corps vide.
+- **Maillage interne** : les pages prestations renvoient vers les guides, les
+  communes sont reliées entre voisines géographiques. Aucune page orpheline,
+  6 liens entrants en médiane.
+- **IndexNow** (`./indexnow.sh`) : prévient Bing en quelques minutes au lieu de
+  quelques jours. Google ne l'utilise pas, mais Bing alimente Copilot et la
+  recherche de ChatGPT. À relancer après chaque publication et après la bascule
+  de domaine.
+- **`./bascule-domaine.sh <domaine>`** : bascule les 25 pages, le sitemap, le
+  robots, le llms et tout le JSON-LD en une commande, le jour du vrai domaine.
 
 ---
 
