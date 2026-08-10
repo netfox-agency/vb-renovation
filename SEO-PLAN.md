@@ -8,9 +8,10 @@ faire, côté client**, par ordre de rentabilité.
 
 ## 1. Ce qui a été fait (côté site)
 
-### Architecture : de 1 page à 13 pages
+### Architecture : de 1 page à 25 pages
 Le site ne comptait qu'une seule page indexable, qui devait porter à elle seule
-une dizaine d'intentions de recherche différentes. Google associe une page à un
+une dizaine d'intentions de recherche différentes. Il compte désormais
+**25 pages et environ 9 300 mots de contenu unique**. Google associe une page à un
 ou deux sujets, rarement dix : l'essentiel de la demande locale était donc hors
 de portée. Le site suit désormais une architecture **hub-and-spoke** :
 
@@ -27,11 +28,29 @@ de portée. Le site suit désormais une architecture **hub-and-spoke** :
   les plus tapées du secteur, et la première objection de tout prospect
 - `/aides-ravalement-facade`
 
-**4 pages communes** (contenu réellement différent, pas un copier-coller de ville)
+**1 page copropriétés** (`/ravalement-copropriete-syndic`) — segment entièrement
+absent du site : devis détaillé par poste pour l'assemblée générale, planning,
+gestion des occupants. C'est le seul type de chantier où le client n'est pas un
+particulier, et le panier moyen y est bien plus élevé.
+
+**3 guides** qui captent la recherche bien en amont du devis, et que les moteurs
+IA (AI Overviews, ChatGPT, Perplexity) citent volontiers
+- `/quand-ravaler-sa-facade` — les signes qui alertent
+- `/enduit-ou-peinture-facade` — la comparaison des trois solutions
+- `/couleur-facade-reglementation` — déclaration préalable, PLU, ABF
+
+**10 pages communes** (contenu réellement différent, pas un copier-coller de
+ville : la similarité mesurée entre deux pages est de 15 % maximum)
 - `/peintre-perros-guirec` — embruns, résidences secondaires
 - `/peintre-tregastel` — enduit clair sur granit rose
 - `/peintre-trebeurden` — pignons plein ouest
 - `/peintre-treguier` — bâti ancien, chaux, secteur protégé
+- `/peintre-pleumeur-bodou` — granit, Île-Grande très exposée
+- `/peintre-louannec` — baie abritée, pavillons des années 80-2000
+- `/peintre-plestin-les-greves` — Lieue de Grève, mer et campagne
+- `/peintre-penvenan` — Port-Blanc, Buguélès, côte rocheuse
+- `/peintre-paimpol` — maisons d'armateurs, chaux, air de port
+- `/peintre-guingamp` — intérieur des terres, gel plutôt que sel
 
 Chaque page a son propre titre, sa méta-description, son H1, son contenu unique,
 sa FAQ, son schema.org, et un maillage vers les pages voisines.

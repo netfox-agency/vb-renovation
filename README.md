@@ -48,8 +48,8 @@ Les points bloquants :
 
 ## Architecture
 
-13 pages indexables en hub-and-spoke : accueil + 6 pages prestations + 2 pages
-informationnelles (prix, aides) + 4 pages communes. Chaque page a son propre
+25 pages indexables en hub-and-spoke : accueil + 7 pages prestations (dont
+copropriétés) + 5 pages guides/infos + 10 pages communes. Chaque page a son propre
 title/meta/H1, un contenu unique, une FAQ, un schema Service + BreadcrumbList
 (+ FAQPage) et un maillage vers les pages voisines. Les CTA des pages internes
 pointent vers `/?devis=<cle>#devis`, qui pré-remplit le formulaire.
