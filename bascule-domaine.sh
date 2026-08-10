@@ -57,6 +57,7 @@ echo "  1. brancher $NOUVEAU sur le Worker Cloudflare (Settings > Domains & Rout
 echo "  2. rediriger $ANCIEN vers $NOUVEAU en 301 (Redirect Rule Cloudflare)"
 echo "  3. choisir www ou apex et rediriger l'autre en 301"
 echo "  4. déclarer le site dans Search Console et y soumettre le sitemap"
+echo "  4 bis. lancer ./indexnow.sh pour prévenir Bing immédiatement"
 echo "  5. mettre l'adresse du site à jour sur la fiche Google"
 echo
 echo "Puis : git add -A && git commit -m \"Bascule sur $NOUVEAU\" && git push"
