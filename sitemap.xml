@@ -6,6 +6,7 @@
     <lastmod>2026-08-10</lastmod>
   </url>
 
+  <!-- Prestations -->
   <url>
     <loc>https://vb-renovation.netfox-france.workers.dev/ravalement-facade-lannion</loc>
     <lastmod>2026-08-10</lastmod>
@@ -30,7 +31,12 @@
     <loc>https://vb-renovation.netfox-france.workers.dev/fissures-impermeabilisation-lannion</loc>
     <lastmod>2026-08-10</lastmod>
   </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/ravalement-copropriete-syndic</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
 
+  <!-- Guides et informations -->
   <url>
     <loc>https://vb-renovation.netfox-france.workers.dev/prix-ravalement-facade</loc>
     <lastmod>2026-08-10</lastmod>
@@ -39,7 +45,20 @@
     <loc>https://vb-renovation.netfox-france.workers.dev/aides-ravalement-facade</loc>
     <lastmod>2026-08-10</lastmod>
   </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/quand-ravaler-sa-facade</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/enduit-ou-peinture-facade</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/couleur-facade-reglementation</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
 
+  <!-- Communes -->
   <url>
     <loc>https://vb-renovation.netfox-france.workers.dev/peintre-perros-guirec</loc>
     <lastmod>2026-08-10</lastmod>
@@ -54,6 +73,30 @@
   </url>
   <url>
     <loc>https://vb-renovation.netfox-france.workers.dev/peintre-treguier</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-pleumeur-bodou</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-louannec</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-plestin-les-greves</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-penvenan</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-paimpol</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://vb-renovation.netfox-france.workers.dev/peintre-guingamp</loc>
     <lastmod>2026-08-10</lastmod>
   </url>
 
