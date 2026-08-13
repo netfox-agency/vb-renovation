@@ -100,10 +100,12 @@ sa FAQ, son schema.org, et un maillage vers les pages voisines.
 
 ### Priorité 1 — Sans ça, le reste ne sert pas à grand-chose
 
-**a) Brancher le formulaire de devis.**
-Il porte encore une clé de test : **toute demande envoyée par le formulaire est
-perdue**. Créer un compte gratuit sur web3forms.com et nous transmettre la clé.
-C'est le point le plus urgent du document.
+**a) ~~Brancher le formulaire de devis~~ — fait le 13 août 2026.**
+Le formulaire est actif et vérifié par un envoi réel depuis le site en ligne :
+la demande est bien reçue, l'écran de confirmation s'affiche, et la conversion
+est enregistrée pour le futur suivi publicitaire. Seul point à confirmer de
+votre côté : que l'adresse e-mail de réception paramétrée dans le compte
+Web3Forms est bien celle où vous voulez recevoir les demandes.
 
 **b) Acheter un vrai nom de domaine** (par exemple `vb-renovation.fr`).
 L'adresse actuelle en `.workers.dev` est une adresse technique : elle inspire

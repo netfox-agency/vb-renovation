@@ -27,10 +27,13 @@ or `#b9882c`**, fond blanc minéral. Séparateurs de section en **diagonale**
 Le plan complet (audit SEO + actions client priorisées) est dans `SEO-PLAN.md`.
 Les points bloquants :
 
-1. **Clé Web3Forms** : remplacer `REMPLACER_PAR_VOTRE_CLE_WEB3FORMS` dans
-   `index.html` — sans elle, toute demande de devis est perdue (le formulaire
-   bascule sur le repli téléphone). Tester par un envoi réel depuis un vrai
-   navigateur (l'anti-bot Web3Forms bloque les tests headless).
+1. ~~Clé Web3Forms~~ **FAIT le 13/08/2026** : formulaire actif et testé en
+   production par un envoi réel (HTTP 200, `success: true`, tous les champs
+   transmis, écran de confirmation affiché, `generate_lead` poussé dans le
+   dataLayer). À vérifier côté client : l'adresse de réception configurée dans
+   le compte Web3Forms doit être celle où VB Rénovation veut ses demandes.
+   Rappel : l'API refuse les appels serveur (plan Pro), le test ne peut se
+   faire que depuis un navigateur.
 2. **Domaine définitif** : remplacer `vb-renovation.netfox-france.workers.dev`
    dans les 13 pages + `sitemap.xml` + `robots.txt` + `llms.txt`, puis 301.
 3. **Logo HD** : le fichier fourni fait 160×160 (issu de la fiche Google).
