@@ -24,7 +24,8 @@ or `#b9882c`**, fond blanc minéral. Séparateurs de section en **diagonale**
 
 ## TODO avant mise en ligne (à compléter avec le client)
 
-Le plan complet (audit SEO + actions client priorisées) est dans `SEO-PLAN.md`.
+Le plan complet (audit SEO + actions client priorisées) est dans `SEO-PLAN.md`,
+le plan publicitaire et l'analyse de marché dans `ADS-PLAN.md`.
 Les points bloquants :
 
 1. ~~Clé Web3Forms~~ **FAIT le 13/08/2026** : formulaire actif et testé en
@@ -63,6 +64,7 @@ pointent vers `/?devis=<cle>#devis`, qui pré-remplit le formulaire.
 - `wrangler.jsonc` : URLs propres + page 404 réellement servie.
 - `.assetsignore` : empêche `.git` et les docs internes d'être servis.
 - `robots.txt` / `sitemap.xml` / `llms.txt` : à re-générer au changement de domaine.
+- `bascule-domaine.sh` / `indexnow.sh` : bascule du domaine, soumission Bing.
 
 ## Sources des photos (Pexels, licence libre)
 
