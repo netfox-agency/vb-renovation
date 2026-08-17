@@ -86,7 +86,7 @@ Cinq conditions. Elles ne sont pas des formalités : lancer sans elles, c'est
 payer pour des clics qui ne se transformeront pas.
 
 **1. Le nom de domaine.** Une annonce qui affiche
-`vb-renovation.netfox-france.workers.dev` perd en crédibilité avant même le
+`vbrenovation22.fr` perd en crédibilité avant même le
 clic, et l'adresse visible est un élément de l'annonce. `vbrenovation22.fr` est
 décidé et libre : c'est le préalable numéro un.
 

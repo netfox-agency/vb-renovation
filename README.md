@@ -35,8 +35,9 @@ Les points bloquants :
    le compte Web3Forms doit être celle où VB Rénovation veut ses demandes.
    Rappel : l'API refuse les appels serveur (plan Pro), le test ne peut se
    faire que depuis un navigateur.
-2. **Domaine définitif** : remplacer `vb-renovation.netfox-france.workers.dev`
-   dans les 13 pages + `sitemap.xml` + `robots.txt` + `llms.txt`, puis 301.
+2. ~~Domaine définitif~~ **FAIT le 17/08/2026** : bascule sur `vbrenovation22.fr`
+   via `./bascule-domaine.sh`. Reste hors dépôt : redirection 301 de l'ancienne
+   adresse workers.dev, et choix www ou apex avec 301 de l'autre.
 3. **Logo HD** : le fichier fourni fait 160×160 (issu de la fiche Google).
 4. **À confirmer avec le client** : SIRET, forme juridique, gérant, e-mail,
    assurance décennale (compagnie + n° de police), horaires.

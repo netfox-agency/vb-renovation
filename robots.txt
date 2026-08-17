@@ -25,4 +25,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://vb-renovation.netfox-france.workers.dev/sitemap.xml
+Sitemap: https://vbrenovation22.fr/sitemap.xml

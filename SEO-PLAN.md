@@ -186,7 +186,7 @@ génériques (« peintre Lannion ») demandent plus de temps et plus d'avis.
 
 ## 4. Notes techniques (interne)
 
-- Basculer le domaine = remplacer `vb-renovation.netfox-france.workers.dev` dans
+- Basculer le domaine = remplacer `vbrenovation22.fr` dans
   `index.html`, les 12 pages, `sitemap.xml`, `robots.txt`, `llms.txt`
   (`grep -rl` puis `sed`), puis mettre en place la redirection 301.
 - Le suivi de conversion est câblé dans `assets/script.js` (dataLayer
