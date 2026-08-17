@@ -102,7 +102,10 @@ seulement la maçonnerie du code APE.
 **4. Le suivi des conversions.** Le site pousse déjà les bons événements
 (demande de devis et clic sur le téléphone), mais il manque l'identifiant du
 conteneur de suivi. Sans lui, on dépense à l'aveugle : impossible de savoir
-quelle annonce rapporte un chantier.
+quelle annonce rapporte un chantier. Il faudra aussi un **bandeau de
+consentement couplé au Consent Mode v2** — obligatoire dès qu'on fait de la
+publicité en France, et sans lui une partie des conversions n'est pas mesurée
+(voir le détail plus bas).
 
 **5. Cinq à dix avis supplémentaires.** Avec 3 avis face à des concurrents à
 25-41, chaque euro dépensé rapportera moins. Deux semaines de sollicitation
@@ -173,10 +176,17 @@ Google Ads — Recherche
       gros panier, cycle long, faible volume
 ```
 
+**Convention de nommage** : `Recherche_[Prestation]_[Zone]`, par exemple
+`Recherche_Ravalement_Tregor`. Cela paraît anecdotique tant qu'il y a trois
+campagnes, mais c'est ce qui rend les rapports lisibles quand il y en a huit.
+
 **Ciblage géographique** : rayon de 25 km autour de Lannion en priorité, puis
 extension à Paimpol et Guingamp si le coût par prospect le permet. Ciblage sur
 la **présence réelle**, pas sur l'intérêt, pour ne pas payer des clics de
 personnes qui ne vivent pas dans la zone.
+
+**Types de correspondance** : expression et exact uniquement au démarrage
+(voir la section des réglages).
 
 **Horaires** : les appels doivent aboutir. Diffuser sur les plages où le
 téléphone est décroché, et prévoir un message clair sinon. Un prospect payé qui
@@ -216,6 +226,19 @@ l'attestation n'est pas au dossier. Pas de « meilleur » ni de « numéro 1 » 
 c'est invérifiable et interdit. La crédibilité se joue sur la précision, pas
 sur les superlatifs.
 
+### Le format : ne pas sous-alimenter les annonces
+
+Une annonce responsive fonctionne par combinaisons : Google assemble titres et
+descriptions selon la requête. Lui en donner quatre revient à le priver de sa
+seule marge de manœuvre, et l'annonce est notée faible d'entrée.
+
+**Compter 10 à 12 titres et 4 descriptions par groupe d'annonces**, en mélangeant
+les angles : le service, la ville, le devis gratuit, le prix, la réassurance,
+l'appel à l'action. Épingler au maximum une ou deux positions (typiquement le
+nom de la ville en premier titre) et laisser le reste libre.
+
+Les exemples ci-dessous sont des amorces, à compléter jusqu'à la dizaine.
+
 ### Exemples de titres, par campagne
 
 **Ravalement**
@@ -237,6 +260,104 @@ sur les superlatifs.
 **Copropriétés**
 « Ravalement d'immeuble en Trégor » · « Devis détaillé pour votre assemblée » ·
 « Planning ferme, coordination syndic »
+
+---
+
+## 5 bis. Les réglages qui séparent une campagne rentable d'un budget gaspillé
+
+Cette partie est la plus importante du document. Sur un petit budget, ce ne
+sont pas les annonces qui font la différence, ce sont les réglages. Voici les
+sept qui coûtent le plus cher quand on les rate.
+
+### 1. Couper le Réseau Display
+
+À la création d'une campagne de recherche, Google **coche par défaut** la
+diffusion sur le Réseau Display. Les clics y sont bon marché mais sans
+intention : ce sont des bannières vues par des gens qui ne cherchent rien. Sur
+un budget de 400 €, cela peut engloutir la moitié de l'enveloppe sans une seule
+demande de devis. **À décocher systématiquement, sur chaque campagne.**
+
+### 2. Types de correspondance : expression et exact uniquement
+
+Aucune requête large au démarrage. La requête large ne fonctionne qu'avec un
+historique de conversions solide pour guider l'algorithme ; sans données, elle
+déclenche sur tout et n'importe quoi. On commence en **expression et exact**, et
+on n'élargit que lorsque le compte aura accumulé des conversions.
+
+### 3. Désactiver les recommandations appliquées automatiquement
+
+Google propose d'appliquer tout seul ses suggestions : ajout de mots-clés,
+passage en requête large, élargissement du ciblage. Sur un compte neuf, cela
+défait en une nuit le travail de cadrage. **À désactiver dans les paramètres du
+compte dès sa création.**
+
+### 4. La bonne stratégie d'enchères au bon moment
+
+C'est l'erreur classique : démarrer sur une enchère intelligente alors que le
+compte n'a aucune conversion enregistrée. L'algorithme n'a rien pour apprendre
+et dépense au hasard. La progression saine :
+
+| Conversions enregistrées | Stratégie |
+|---|---|
+| 0 (démarrage) | **Maximiser les clics avec un plafond de CPC** (2 à 2,50 €) |
+| 15 à 29 | Maximiser les conversions, sans plafond |
+| 30 et plus | CPA cible, une fois le coût par demande stabilisé |
+
+Changer d'étape trop tôt relance une phase d'apprentissage et fait flamber le
+coût pendant une à deux semaines.
+
+### 5. Ciblage géographique sur la présence réelle
+
+Le réglage par défaut est « présence **ou intérêt** » : il diffuse à des gens
+qui ont simplement consulté du contenu sur Lannion, où qu'ils habitent. Pour un
+artisan, c'est du budget perdu. **Choisir « présence », uniquement.**
+
+### 6. Des listes de négatifs partagées, au niveau du compte
+
+Plutôt que de recopier les mêmes exclusions dans chaque campagne, créer trois
+listes partagées appliquées à tout le compte : **emploi et formation**,
+**gratuit et bricolage**, **hors métier**. Une exclusion ajoutée profite alors
+immédiatement à toutes les campagnes.
+
+### 7. Relire les termes de recherche tous les quinze jours
+
+C'est le seul moyen de voir sur quoi on a réellement payé. Chaque relecture
+alimente les listes de négatifs. Passé un mois sans relecture, une part
+significative du budget part sur des requêtes hors sujet.
+
+---
+
+## 5 ter. Le suivi des conversions, dans le détail
+
+C'est le poste le plus lourd de tout audit publicitaire, et celui où mon plan
+initial restait trop vague. Cinq points précis :
+
+**Les conversions améliorées.** Elles renvoient à Google une version chiffrée
+et anonymisée des coordonnées laissées dans le formulaire, ce qui lui permet de
+rattacher des conversions autrement perdues. Cinq minutes de réglage, environ
+10 % de conversions récupérées. À activer d'emblée.
+
+**Le Consent Mode v2, en version avancée.** Point que j'avais omis et qui est
+majeur en France : depuis l'entrée en vigueur des règles européennes, sans ce
+dispositif une partie des conversions n'est tout simplement plus mesurée, et le
+site s'expose sur le plan réglementaire dès qu'il y a de la publicité. En
+version avancée, il récupère 15 à 25 % du signal perdu. **À mettre en place en
+même temps que le bandeau de consentement, avant le premier euro dépensé.**
+
+**Deux conversions principales, pas dix.** La demande de devis et l'appel
+téléphonique. Rien d'autre en conversion principale : si on compte aussi les
+visites de page ou le temps passé, l'algorithme optimise vers du vent. Pour les
+appels, ne compter que ceux qui dépassent une durée minimale (30 à 60 secondes)
+afin d'écarter les erreurs de numéro.
+
+**Des valeurs différenciées par prestation.** Une demande de ravalement complet
+ne vaut pas une demande de nettoyage. En attribuant une valeur indicative à
+chaque type de demande, l'algorithme apprend à privilégier les chantiers à fort
+panier plutôt que le simple volume. C'est ce qui transforme « beaucoup de
+demandes » en « beaucoup de chiffre d'affaires ».
+
+**Fenêtre de conversion à 30 jours** et attribution basée sur les données : un
+ravalement se décide rarement le jour même.
 
 ---
 
@@ -294,7 +415,12 @@ surtout des photos de chantiers réels. Dépôt du dossier Annonces Local Servic
 dès que la fiche est validée.
 
 **Semaines 3 et 4 — le lancement**
-Ouverture des Annonces Local Services, puis de la campagne ravalement et de la
+Contrôle des sept réglages de la section 5 bis **avant** d'activer quoi que ce
+soit : Réseau Display coupé, correspondances en expression et exact, enchères
+sur « maximiser les clics » avec plafond, recommandations automatiques
+désactivées, ciblage sur la présence, listes de négatifs partagées en place.
+
+Puis ouverture des Annonces Local Services, de la campagne ravalement et de la
 campagne marque. Surveillance quotidienne la première semaine : requêtes
 déclenchées, mots-clés négatifs à ajouter, appels réellement reçus.
 
