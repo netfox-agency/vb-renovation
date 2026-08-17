@@ -416,6 +416,14 @@
           <input type="hidden" name="access_key" value="f13215f5-69e0-4ab8-b6e1-2f0dce3b0457">
           <input type="hidden" name="subject" value="Demande de devis · VB Rénovation">
           <input type="hidden" name="from_name" value="Site VB Rénovation">
+          <!-- Traçabilité : rempli par le script au moment de l'envoi, pour que
+               le mail reçu indique d'où vient la demande (annonce, recherche
+               naturelle, accès direct) et sur quelle page elle a commencé. -->
+          <input type="hidden" name="Origine" value="">
+          <input type="hidden" name="Page d_arrivee" value="">
+          <input type="hidden" name="Page de la demande" value="">
+          <input type="hidden" name="Premiere visite" value="">
+          <input type="hidden" name="Identifiant clic" value="">
           <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
 
           <div class="field">
@@ -826,6 +834,6 @@
 }
 </script>
 
-<script src="assets/script.js?v=2" defer></script>
+<script src="assets/script.js?v=3" defer></script>
 </body>
 </html>

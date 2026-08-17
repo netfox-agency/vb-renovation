@@ -2,6 +2,88 @@
 (function () {
   'use strict';
 
+  /* ============================================================
+     TRAÇABILITÉ DE L'ORIGINE DES DEMANDES
+     L'artisan doit savoir d'où vient une demande quand il rappelle.
+     On capte l'origine à la PREMIÈRE page vue et on la garde pour toute
+     la session : un visiteur qui arrive par une annonce sur
+     /peintre-paimpol puis remplit le formulaire sur l'accueil reste
+     attribué à l'annonce. Les champs partent avec le mail de devis,
+     en français lisible, sans outil externe ni identifiant à configurer.
+     ============================================================ */
+  var ORIGINE_CLE = 'vb_origine';
+
+  function lireParams() {
+    try { return new URLSearchParams(window.location.search); }
+    catch (e) { return { get: function () { return null; } }; }
+  }
+
+  function moteurConnu(hote) {
+    if (/google\./.test(hote)) return 'Google';
+    if (/bing\./.test(hote)) return 'Bing';
+    if (/duckduckgo\./.test(hote)) return 'DuckDuckGo';
+    if (/qwant\./.test(hote)) return 'Qwant';
+    if (/ecosia\./.test(hote)) return 'Ecosia';
+    if (/yahoo\./.test(hote)) return 'Yahoo';
+    return null;
+  }
+
+  // Traduit les paramètres techniques en une phrase que l'artisan comprend.
+  function calculerOrigine() {
+    var p = lireParams();
+    var gclid = p.get('gclid') || p.get('wbraid') || p.get('gbraid');
+    var msclkid = p.get('msclkid');
+    var src = p.get('utm_source'), med = p.get('utm_medium');
+    var camp = p.get('utm_campaign'), terme = p.get('utm_term');
+
+    var libelle;
+    if (gclid) {
+      libelle = 'Google Ads (annonce payante)';
+      if (camp) libelle += ' · campagne ' + camp;
+      if (terme) libelle += ' · mot-clé « ' + terme + ' »';
+    } else if (msclkid) {
+      libelle = 'Bing Ads (annonce payante)';
+      if (camp) libelle += ' · campagne ' + camp;
+    } else if (src) {
+      libelle = src + (med ? ' / ' + med : '');
+      if (camp) libelle += ' · campagne ' + camp;
+    } else {
+      var ref = '';
+      try { ref = document.referrer || ''; } catch (e) {}
+      if (!ref) {
+        libelle = 'Accès direct (adresse tapée, favori ou SMS)';
+      } else {
+        var hote = '';
+        try { hote = new URL(ref).hostname; } catch (e) {}
+        if (hote === window.location.hostname) libelle = 'Accès direct';
+        else {
+          var m = moteurConnu(hote);
+          libelle = m ? 'Recherche ' + m + ' (résultat naturel)' : 'Site référent : ' + hote;
+        }
+      }
+    }
+
+    return {
+      origine: libelle,
+      page_arrivee: window.location.pathname,
+      identifiant_clic: gclid || msclkid || '',
+      arrivee_le: new Date().toLocaleString('fr-FR')
+    };
+  }
+
+  // Première page de la session : on fige l'origine. Ensuite on la relit.
+  function origineDeLaSession() {
+    var o = null;
+    try { o = JSON.parse(sessionStorage.getItem(ORIGINE_CLE) || 'null'); } catch (e) {}
+    if (!o) {
+      o = calculerOrigine();
+      try { sessionStorage.setItem(ORIGINE_CLE, JSON.stringify(o)); } catch (e) {}
+    }
+    return o;
+  }
+
+  var origine = origineDeLaSession();
+
   /* ---------- Pré-remplissage du devis depuis les pages services ----------
      Les CTA des pages internes pointent vers /?devis=<cle>#devis : on
      présélectionne la prestation correspondante dans le formulaire. */
@@ -243,6 +325,17 @@
       var key = form.querySelector('[name="access_key"]').value;
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Envoi…';
+
+      // Origine de la demande, jointe au mail reçu par l'artisan.
+      function remplir(nom, valeur) {
+        var champ = form.querySelector('[name="' + nom + '"]');
+        if (champ) champ.value = valeur || '';
+      }
+      remplir('Origine', origine.origine);
+      remplir('Page d_arrivee', origine.page_arrivee);
+      remplir('Page de la demande', window.location.pathname);
+      remplir('Premiere visite', origine.arrivee_le);
+      remplir('Identifiant clic', origine.identifiant_clic);
 
       // Clé Web3Forms non configurée : on n'envoie pas dans le vide,
       // on bascule directement sur le repli téléphone.
