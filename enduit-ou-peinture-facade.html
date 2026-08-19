@@ -20,7 +20,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/BricolageGrotesque-600-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Inter-400-latin.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=3">
+<link rel="stylesheet" href="/assets/styles.css?v=4">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4h3l1.2 3.5-2 1.3a11 11 0 0 0 4.5 4.5l1.3-2 3.5 1.2v3a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
         06 04 10 71 12
       </a>
-      <a href="/?devis=ravalement#devis" class="btn btn-accent">Devis gratuit</a>
+      <a href="#devis" class="btn btn-accent">Devis gratuit</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><i></i></button>
     </div>
   </div>
@@ -55,7 +55,7 @@
   <li><a href="/#avis">Avis clients</a></li>
   <li><a href="/#zones">Zones d'intervention</a></li>
   <li><a href="/#faq">Questions fréquentes</a></li>
-  <li><a href="/?devis=ravalement#devis">Demander un devis</a></li>
+  <li><a href="#devis">Demander un devis</a></li>
   <li><a href="tel:+33604107112">Appeler · 06 04 10 71 12</a></li>
 </ul>
 
@@ -72,7 +72,7 @@
         <span>Artisan basé à Lannion, route de Tréguier</span>
       </p>
     <div class="hero-cta">
-        <a href="/?devis=ravalement#devis" class="btn btn-light btn-lg">Demander un devis gratuit <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#devis" class="btn btn-light btn-lg">Demander un devis gratuit <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:+33604107112" class="btn btn-glass btn-lg">06 04 10 71 12</a>
       </div>
   </div>
@@ -129,7 +129,7 @@
         <p>C'est justement le rôle du diagnostic : on vous recommande ce qui est adapté, pas ce qui est le plus cher. Gratuit et sans engagement.</p>
       </div>
       <div class="hero-cta">
-        <a href="/?devis=ravalement#devis" class="btn btn-light btn-lg">Demander un devis <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#devis" class="btn btn-light btn-lg">Demander un devis <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:+33604107112" class="btn btn-glass btn-lg">06 04 10 71 12</a>
       </div>
     </div>
@@ -144,6 +144,102 @@
 <details name="faq"><summary>Quelle solution dure le plus longtemps ?</summary><p class="answer">Un enduit bien posé, vingt à trente ans. Une peinture de qualité, dix à quinze ans. Un hydrofuge, cinq à dix ans selon l'exposition. Rapporté au coût, les trois se valent : tout dépend de l'état de départ.</p></details></div>
       </div>
     </section>
+
+<section class="section" id="devis" style="padding-top:0" aria-labelledby="devis-t">
+  <div class="container contact-grid">
+    <div>
+      <p class="kicker">Devis gratuit</p>
+      <h2 class="h2" id="devis-t">Parlons de vos murs.</h2>
+      <p class="lead">Décrivez votre projet en deux lignes : nous vous rappelons pour convenir d'une visite. Le diagnostic et le devis sont gratuits, sans engagement.</p>
+      <div class="info">
+        <div class="info-row">
+          <div><span>Téléphone</span><a href="tel:+33604107112" class="big">06 04 10 71 12</a></div>
+        </div>
+        <div class="info-row">
+          <div><span>Adresse</span><b>80B Route de Tréguier, 22300 Lannion</b><small>Déplacement gratuit pour devis dans tout le Trégor.</small></div>
+        </div>
+        <div class="info-row">
+          <div><span>Entreprise</span><b>VB Rénovation · Luigi Van Been</b><small>Entrepreneur individuel · SIRET 102 870 953 00027.</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form">
+        <form id="devis-form" novalidate>
+          <!-- Clé publique Web3Forms (prévue pour le code client, pas un secret). -->
+          <input type="hidden" name="access_key" value="f13215f5-69e0-4ab8-b6e1-2f0dce3b0457">
+          <input type="hidden" name="subject" value="Demande de devis · VB Rénovation">
+          <input type="hidden" name="from_name" value="Site VB Rénovation">
+          <!-- Traçabilité : rempli par le script au moment de l'envoi. -->
+          <input type="hidden" name="Origine" value="">
+          <input type="hidden" name="Page d_arrivee" value="">
+          <input type="hidden" name="Page de la demande" value="">
+          <input type="hidden" name="Premiere visite" value="">
+          <input type="hidden" name="Identifiant clic" value="">
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="f-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-nom" name="nom" autocomplete="name" required>
+            <p class="err">Merci d'indiquer votre nom.</p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Votre téléphone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" required>
+            <p class="err">Merci d'indiquer un téléphone où vous joindre.</p>
+          </div>
+          <div class="field">
+            <label for="f-mail">Votre e-mail</label>
+            <input type="email" id="f-mail" name="email" autocomplete="email" inputmode="email">
+            <p class="err">Cet e-mail ne semble pas valide.</p>
+          </div>
+          <div class="field">
+            <label for="f-ville">Commune du chantier</label>
+            <input type="text" id="f-ville" name="commune" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label for="f-presta">Votre besoin</label>
+            <select id="f-presta" name="prestation">
+              <option value="">Je ne sais pas encore</option>
+              <option>Ravalement de façade</option>
+              <option>Peinture de façade</option>
+              <option>Enduit / reprises</option>
+              <option>Peinture intérieure</option>
+              <option>Nettoyage / hydrofuge</option>
+              <option>Fissures / imperméabilisation</option>
+              <option>Volets &amp; boiseries</option>
+              <option>Copropriété / syndic</option>
+              <option>Autre demande</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Votre message</label>
+            <textarea id="f-msg" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-lg" id="submit-btn">Envoyer ma demande
+            <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-foot">Réponse sous 24 h ouvrées. Devis gratuit et sans engagement.</p>
+        </form>
+
+        <div class="form-state" id="form-ok" role="status" aria-live="polite">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <b>Message reçu.</b>
+          <p>Nous vous rappelons sous 24 h ouvrées pour convenir d'une visite.</p>
+          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
+        </div>
+
+        <div class="form-state is-error" id="form-ko" role="alert" aria-live="assertive">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5M12 17h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <b>L'envoi n'a pas abouti.</b>
+          <p>Le plus simple est de nous appeler directement : nous répondons.</p>
+          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="footer">
@@ -171,7 +267,7 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="tel:+33604107112">06 04 10 71 12</a></li>
-          <li><a href="/#devis">Demander un devis</a></li>
+          <li><a href="#devis">Demander un devis</a></li>
           <li><a href="/prix-ravalement-facade">Prix &amp; fourchettes</a></li>
           <li><a href="/aides-ravalement-facade">Aides &amp; subventions</a></li>
           <li><a href="/#zones">Zones d'intervention</a></li>
@@ -190,7 +286,7 @@
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4h3l1.2 3.5-2 1.3a11 11 0 0 0 4.5 4.5l1.3-2 3.5 1.2v3a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
     Appeler
   </a>
-  <a href="/?devis=ravalement#devis" class="btn btn-accent">Devis gratuit</a>
+  <a href="#devis" class="btn btn-accent">Devis gratuit</a>
 </div>
 
 <script type="application/ld+json">

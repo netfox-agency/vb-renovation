@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vb-renovation",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4197"],
+      "port": 4197
+    }
+  ]
+}

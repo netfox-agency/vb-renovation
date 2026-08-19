@@ -927,3 +927,27 @@ h2, h3 { text-wrap: balance; }
   .cta-band .hero-cta { width: 100%; flex-direction: column; }
   .cta-band .hero-cta .btn { width: 100%; }
 }
+
+/* ---------- Visuel des pages de prestation (v4) ---------- */
+.page-photo {
+  margin: 0 0 clamp(28px, 4vw, 44px);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 860px;
+}
+.page-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.page-photo figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 11px;
+  color: #fff;
+  background: rgba(12, 20, 36, .55);
+  padding: 3px 9px;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
