@@ -20,7 +20,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/BricolageGrotesque-600-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Inter-400-latin.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=4">
+<link rel="stylesheet" href="/assets/styles.css?v=5">
 </head>
 <body>
 
@@ -66,11 +66,12 @@
     <ol class="crumb"><li><a href="/">Accueil</a></li><li>Peinture de façade</li></ol>
     <h1>Peinture de façade à Lannion</h1>
     <p class="lead">Une façade repeinte dans les règles, c'est dix ans de tranquillité. Mal préparée, c'est deux hivers bretons avant les premières cloques.</p>
-    <p class="trust-strip">
-        <span><span class="stars" aria-hidden="true">★★★★★</span> 5,0 sur 5 · 3 avis Google</span>
-        <span>Diagnostic et devis gratuits</span>
-        <span>Artisan basé à Lannion, route de Tréguier</span>
-      </p>
+    <ul class="svc-trust">
+      <li><span>✓</span> Devis et déplacement gratuits</li>
+      <li><span>✓</span> Artisan basé à Lannion</li>
+      <li><span>✓</span> Réponse sous 24 h ouvrées</li>
+      <li><span>★</span> 5,0/5 sur Google</li>
+    </ul>
     <div class="hero-cta">
         <a href="#devis" class="btn btn-light btn-lg">Demander un devis gratuit <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:+33604107112" class="btn btn-glass btn-lg">06 04 10 71 12</a>
@@ -108,20 +109,44 @@
          Bâtiments de France. Nous vous proposons un choix de teintes conformes et déposons la
          déclaration préalable avec vous : votre projet passe du premier coup.</p>
       
+      <div class="urgent-box"><b>Une peinture qui farine ne protège plus rien.</b><p>Quand la peinture cloque, farine ou se décolle, le mur n'est plus protégé : il boit la pluie et les embruns, et l'humidité travaille dedans. Repeindre au bon moment coûte le prix d'une peinture ; attendre, celui d'un ravalement complet.</p></div>
+
+      <h2>Comment ça se passe</h2>
+      <div class="steps" style="margin:10px 0 8px">
+        <div class="step"><span class="step-n">01</span><b>Diagnostic du support</b><p>On vérifie que le mur peut être repeint tel quel, ou ce qu'il faut reprendre avant. Gratuit.</p></div>
+        <div class="step"><span class="step-n">02</span><b>Devis & choix des teintes</b><p>Devis détaillé, et des teintes conformes aux règles d'urbanisme de votre commune.</p></div>
+        <div class="step"><span class="step-n">03</span><b>Préparation</b><p>Lavage, petites reprises, impression : c'est elle qui fait tenir la finition.</p></div>
+        <div class="step"><span class="step-n">04</span><b>Deux couches microporeuses</b><p>Une peinture qui laisse respirer le mur, adaptée au climat marin du Trégor.</p></div>
+      </div>
+      <h2>Combien coûte une peinture de façade ?</h2>
+      <div class="budget-box">
+      <p>Le prix dépend de la surface, de la préparation nécessaire (un mur sain se peint vite, un mur abîmé se répare d'abord), de la hauteur et de l'accès. Repères de marché :</p>
+      <table class="price-table">
+        <thead><tr><th>Travaux</th><th>Ce que ça comprend</th><th>Fourchette indicative</th></tr></thead>
+        <tbody><tr><td>Peinture de façade</td><td>Préparation, impression, 2 couches microporeuses</td><td>25 à 50 €/m²</td></tr>
+<tr><td>Ravalement complet si le mur doit être repris</td><td>Nettoyage, réparations, enduit, finition</td><td>50 à 120 €/m²</td></tr></tbody>
+      </table>
+      <p class="price-note">Fourchettes indicatives constatées sur le marché de la rénovation de façade,
+      données à titre de repère : chaque mur est différent. Le chiffre juste, c'est celui du devis,
+      établi gratuitement après diagnostic sur place, et sans engagement.</p>
+      <a href="#devis" class="btn btn-accent">Recevoir mon devis gratuit</a>
+      </div>
+
+      <h2>Nos engagements sur chaque chantier</h2>
+      <ul class="engage-grid">
+        <li><b>Un artisan, un interlocuteur</b><span>Vous parlez à celui qui fait le travail, du diagnostic à la réception.</span></li>
+        <li><b>Chantier protégé et propre</b><span>Abords bâchés, nettoyage en partant. Votre terrain reste le vôtre.</span></li>
+        <li><b>Produits adaptés au climat marin</b><span>Peintures et enduits qui laissent respirer le mur, choisis pour le Trégor.</span></li>
+        <li><b>Délais annoncés, délais tenus</b><span>Le calendrier est posé au devis et vous êtes tenu informé chaque jour.</span></li>
+      </ul>
+
+      <h2>Ce que disent nos clients</h2>
+      <p class="lp-rating"><span class="stars" aria-hidden="true">★★★★★</span> <b>5,0</b> sur 5 · 3 avis Google</p>
+      <p>La meilleure publicité d'un artisan, c'est le chantier d'avant. Les avis
+      sont publics et vérifiables sur notre fiche Google :</p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=VB+R%C3%A9novation+80+Rte+de+Tr%C3%A9guier+22300+Lannion" class="btn btn-ghost" target="_blank" rel="noopener">Lire nos avis Google</a></p>
     </div>
 
-    <div class="links-band">
-      <h2>Prestations liées</h2>
-      <ul class="link-cards">
-        <li><a href="/ravalement-facade-lannion">Ravalement complet</a></li>
-<li><a href="/enduit-facade-lannion">Enduit & reprises</a></li>
-<li><a href="/nettoyage-demoussage-facade-lannion">Nettoyage & hydrofuge</a></li>
-<li><a href="/prix-ravalement-facade">Prix & fourchettes</a></li>
-<li><a href="/couleur-facade-reglementation">Couleur de façade & règles</a></li>
-<li><a href="/enduit-ou-peinture-facade">Enduit ou peinture ?</a></li>
-<li><a href="/peintre-perros-guirec">Peintre à Perros-Guirec</a></li>
-      </ul>
-    </div>
 
     <div class="cta-band">
       <div>
@@ -144,6 +169,23 @@
 <details name="faq"><summary>Peignez-vous aussi les volets et boiseries ?</summary><p class="answer">Oui, c'est le complément naturel d'une façade : volets, sous-faces, portails. Une façade neuve avec des volets fatigués, ce serait dommage.</p></details></div>
       </div>
     </section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="links-band">
+      <h2>Prestations liées</h2>
+      <ul class="link-cards">
+        <li><a href="/ravalement-facade-lannion">Ravalement complet</a></li>
+<li><a href="/enduit-facade-lannion">Enduit & reprises</a></li>
+<li><a href="/nettoyage-demoussage-facade-lannion">Nettoyage & hydrofuge</a></li>
+<li><a href="/prix-ravalement-facade">Prix & fourchettes</a></li>
+<li><a href="/couleur-facade-reglementation">Couleur de façade & règles</a></li>
+<li><a href="/enduit-ou-peinture-facade">Enduit ou peinture ?</a></li>
+<li><a href="/peintre-perros-guirec">Peintre à Perros-Guirec</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="devis" style="padding-top:0" aria-labelledby="devis-t">
   <div class="container contact-grid">

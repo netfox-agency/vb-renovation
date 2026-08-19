@@ -951,3 +951,50 @@ h2, h3 { text-wrap: balance; }
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
+
+/* ---------- Landing de conversion, pages prestation (v5) ---------- */
+.svc-trust {
+  display: flex; flex-wrap: wrap; gap: 8px 22px;
+  list-style: none; margin: 22px 0 0; padding: 0;
+  font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, .88);
+}
+.svc-trust li { display: flex; align-items: center; gap: 7px; }
+.svc-trust li > span { color: var(--gold); font-weight: 800; }
+
+.urgent-box {
+  margin: 34px 0 8px; padding: 22px 24px;
+  border-left: 3px solid var(--gold-deep);
+  background: var(--surface); border-radius: 0 var(--r-md) var(--r-md) 0;
+  box-shadow: var(--sh-sm);
+}
+.urgent-box b { font-family: var(--display); font-size: 17px; color: var(--ink); display: block; margin-bottom: 8px; }
+.urgent-box p { margin: 0; color: var(--text-soft); }
+
+.budget-box {
+  margin: 10px 0 8px; padding: clamp(22px, 3vw, 30px);
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); box-shadow: var(--sh-sm);
+}
+.budget-box .price-table { margin-top: 6px; }
+.budget-box .btn { margin-top: 18px; }
+.budget-box .price-note { margin-top: 14px; }
+
+.lp-rating {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 6px 0 16px; font-size: 15px; color: var(--text-soft);
+}
+.lp-rating .stars { color: var(--gold); letter-spacing: 2px; }
+.lp-rating b { color: var(--ink); font-size: 17px; }
+
+.engage-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin: 10px 0 8px; padding: 0; list-style: none;
+}
+.engage-grid li {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 16px;
+}
+.engage-grid li b { display: block; font-family: var(--display); font-size: 15px; color: var(--ink); margin-bottom: 5px; }
+.engage-grid li span { font-size: 13.5px; color: var(--text-soft); line-height: 1.5; }
+@media (max-width: 900px) { .engage-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .engage-grid { grid-template-columns: 1fr; } }
