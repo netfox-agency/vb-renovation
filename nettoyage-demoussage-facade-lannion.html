@@ -20,7 +20,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/BricolageGrotesque-600-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Inter-400-latin.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css?v=5">
+<link rel="stylesheet" href="/assets/styles.css?v=6">
 </head>
 <body>
 
@@ -62,22 +62,114 @@
 <main id="main">
 
 <header class="page-hero">
-  <div class="container">
+  <div class="container lp-hero-grid">
+    <div class="lp-hero-copy">
     <ol class="crumb"><li><a href="/">Accueil</a></li><li>Nettoyage & hydrofuge</li></ol>
     <h1>Nettoyage et démoussage de façade à Lannion</h1>
     <p class="lead">Traces vertes, noires, mousse dans les joints : le climat breton nourrit tout ça. Un nettoyage adapté, un traitement, un hydrofuge : votre façade repart propre et protégée.</p>
-    <ul class="svc-trust">
-      <li><span>✓</span> Devis et déplacement gratuits</li>
-      <li><span>✓</span> Artisan basé à Lannion</li>
-      <li><span>✓</span> Réponse sous 24 h ouvrées</li>
-      <li><span>★</span> 5,0/5 sur Google</li>
-    </ul>
     <div class="hero-cta">
         <a href="#devis" class="btn btn-light btn-lg">Demander un devis gratuit <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="tel:+33604107112" class="btn btn-glass btn-lg">06 04 10 71 12</a>
       </div>
+    </div>
+    <aside class="lp-hero-form" id="devis">
+      <div class="lp-form-card">
+        <div class="form-head">
+          <b>Recevoir mon devis gratuit</b>
+          <p>1 minute. Nous vous rappelons sous 24 h ouvrées avec un rendez-vous de visite.</p>
+        </div>
+        <form id="devis-form" novalidate>
+          <!-- Clé publique Web3Forms (prévue pour le code client, pas un secret). -->
+          <input type="hidden" name="access_key" value="f13215f5-69e0-4ab8-b6e1-2f0dce3b0457">
+          <input type="hidden" name="subject" value="Demande de devis · VB Rénovation">
+          <input type="hidden" name="from_name" value="Site VB Rénovation">
+          <input type="hidden" name="Origine" value="">
+          <input type="hidden" name="Page d_arrivee" value="">
+          <input type="hidden" name="Page de la demande" value="">
+          <input type="hidden" name="Premiere visite" value="">
+          <input type="hidden" name="Identifiant clic" value="">
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+          <div class="field">
+            <label for="f-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-nom" name="nom" autocomplete="name" placeholder="Nom et prénom" required>
+            <p class="err">Merci d'indiquer votre nom.</p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Votre téléphone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" placeholder="06 00 00 00 00" required>
+            <p class="err">Merci d'indiquer un téléphone où vous joindre.</p>
+          </div>
+          <div class="field">
+            <label for="f-ville">Commune du chantier</label>
+            <input type="text" id="f-ville" name="commune" autocomplete="address-level2" placeholder="Lannion, Perros-Guirec…">
+          </div>
+          <div class="field">
+            <label for="f-presta">Votre besoin</label>
+            <select id="f-presta" name="prestation">
+              <option value=''>Je ne sais pas encore</option>
+              <option>Ravalement de façade</option>
+              <option>Peinture de façade</option>
+              <option>Enduit / reprises</option>
+              <option>Peinture intérieure</option>
+              <option selected>Nettoyage / hydrofuge</option>
+              <option>Fissures / imperméabilisation</option>
+              <option>Volets &amp; boiseries</option>
+              <option>Copropriété / syndic</option>
+              <option>Autre demande</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Précisions <span style="color:var(--text-mute);font-weight:400">(facultatif)</span></label>
+            <textarea id="f-msg" name="message" rows="2" placeholder="Surface, état, accès, étage…"></textarea>
+          </div>
+          <div class="field sr-only">
+            <label for="f-mail">Votre e-mail</label>
+            <input type="email" id="f-mail" name="email" autocomplete="email" inputmode="email" tabindex="-1">
+            <p class="err">Cet e-mail ne semble pas valide.</p>
+          </div>
+          <button type="submit" class="btn btn-accent btn-lg" id="submit-btn">Recevoir mon devis gratuit</button>
+          <p class="form-foot">Gratuit · Sans engagement · Aucune donnée revendue</p>
+        </form>
+        <div class="form-state" id="form-ok" role="status" aria-live="polite">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <b>Message reçu.</b>
+          <p>Nous vous rappelons sous 24 h ouvrées pour convenir d'une visite.</p>
+          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
+        </div>
+        <div class="form-state is-error" id="form-ko" role="alert" aria-live="assertive">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5M12 17h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+          <b>L'envoi n'a pas abouti.</b>
+          <p>Le plus simple est de nous appeler directement : nous répondons.</p>
+          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
+        </div>
+      </div>
+    </aside>
   </div>
 </header>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg></span><span><b>Devis sous 24 h ouvrées</b><small>Visite et chiffrage gratuits</small></span></div>
+    <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></span><span><b>Artisan basé à Lannion</b><small>80B Route de Tréguier</small></span></div>
+    <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 13h18M8 9h13M3 17h18" stroke="currentColor" stroke-width="1.4"/></svg></span><span><b>Produits climat marin</b><small>Le mur respire, la pluie glisse</small></span></div>
+    <div class="trust-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.6 6.3.8-4.6 4.3 1.2 6.1L12 16.9l-5.6 2.9 1.2-6.1L3 9.4l6.3-.8L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>5,0/5 sur Google</b><small>Avis publics et vérifiables</small></span></div>
+  </div>
+</div>
+
+<section class="risk-sec">
+  <div class="container">
+    <p class="kicker">Pourquoi ça presse</p>
+    <h2>La mousse ne fait pas que salir votre façade.</h2>
+    <p class="lead">Sous le climat breton, mousses, algues et lichens prolifèrent toute l'année. Laissés en place, ils travaillent le mur de l'intérieur.</p>
+    <div class="risk-list">
+      <div class="risk"><span class="n">01</span><div><h3>Le mur ne sèche plus</h3><p>La mousse retient l'eau contre la façade en permanence : l'humidité finit par traverser.</p></div></div>
+      <div class="risk"><span class="n">02</span><div><h3>Le gel fait éclater</h3><p>Un support gorgé d'eau + une nuit de gel = enduit qui saute, joints qui s'ouvrent.</p></div></div>
+      <div class="risk"><span class="n">03</span><div><h3>Les taches s'ancrent</h3><p>Vertes puis noires : plus elles restent, plus le nettoyage doit être agressif, et plus il coûte.</p></div></div>
+      <div class="risk"><span class="n">04</span><div><h3>La façade vieillit deux fois plus vite</h3><p>Une façade nettoyée et hydrofugée reste saine des années : c'est l'entretien le moins cher du bâtiment.</p></div></div>
+    </div>
+    <a href="#devis" class="btn btn-light btn-lg risk-cta">Faire diagnostiquer ma façade</a>
+  </div>
+</section>
 
 <section class="section" style="padding-top:clamp(40px,5vw,64px)">
   <div class="container">
@@ -107,8 +199,6 @@
          Les mousses reviennent bien plus lentement, le mur reste sec, l'isolation fonctionne
          mieux. C'est l'entretien malin, à une fraction du prix d'un ravalement.</p>
       
-      <div class="urgent-box"><b>Les mousses gardent votre mur humide toute l'année.</b><p>Sous le climat breton, mousses et algues retiennent l'eau contre la façade : le mur ne sèche plus jamais complètement, les traces vertes s'incrustent et le gel fait le reste. Un nettoyage suivi d'un hydrofuge redonne des années de tranquillité, pour un coût bien inférieur à un ravalement.</p></div>
-
       <h2>Comment ça se passe</h2>
       <div class="steps" style="margin:10px 0 8px">
         <div class="step"><span class="step-n">01</span><b>Diagnostic du support</b><p>Enduit, pierre, peinture : chaque support impose sa méthode. Gratuit.</p></div>
@@ -185,101 +275,6 @@
   </div>
 </section>
 
-<section class="section" id="devis" style="padding-top:0" aria-labelledby="devis-t">
-  <div class="container contact-grid">
-    <div>
-      <p class="kicker">Devis gratuit</p>
-      <h2 class="h2" id="devis-t">Parlons de vos murs.</h2>
-      <p class="lead">Décrivez votre projet en deux lignes : nous vous rappelons pour convenir d'une visite. Le diagnostic et le devis sont gratuits, sans engagement.</p>
-      <div class="info">
-        <div class="info-row">
-          <div><span>Téléphone</span><a href="tel:+33604107112" class="big">06 04 10 71 12</a></div>
-        </div>
-        <div class="info-row">
-          <div><span>Adresse</span><b>80B Route de Tréguier, 22300 Lannion</b><small>Déplacement gratuit pour devis dans tout le Trégor.</small></div>
-        </div>
-        <div class="info-row">
-          <div><span>Entreprise</span><b>VB Rénovation · Luigi Van Been</b><small>Entrepreneur individuel · SIRET 102 870 953 00027.</small></div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="form">
-        <form id="devis-form" novalidate>
-          <!-- Clé publique Web3Forms (prévue pour le code client, pas un secret). -->
-          <input type="hidden" name="access_key" value="f13215f5-69e0-4ab8-b6e1-2f0dce3b0457">
-          <input type="hidden" name="subject" value="Demande de devis · VB Rénovation">
-          <input type="hidden" name="from_name" value="Site VB Rénovation">
-          <!-- Traçabilité : rempli par le script au moment de l'envoi. -->
-          <input type="hidden" name="Origine" value="">
-          <input type="hidden" name="Page d_arrivee" value="">
-          <input type="hidden" name="Page de la demande" value="">
-          <input type="hidden" name="Premiere visite" value="">
-          <input type="hidden" name="Identifiant clic" value="">
-          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
-
-          <div class="field">
-            <label for="f-nom">Votre nom <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="f-nom" name="nom" autocomplete="name" required>
-            <p class="err">Merci d'indiquer votre nom.</p>
-          </div>
-          <div class="field">
-            <label for="f-tel">Votre téléphone <span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" required>
-            <p class="err">Merci d'indiquer un téléphone où vous joindre.</p>
-          </div>
-          <div class="field">
-            <label for="f-mail">Votre e-mail</label>
-            <input type="email" id="f-mail" name="email" autocomplete="email" inputmode="email">
-            <p class="err">Cet e-mail ne semble pas valide.</p>
-          </div>
-          <div class="field">
-            <label for="f-ville">Commune du chantier</label>
-            <input type="text" id="f-ville" name="commune" autocomplete="address-level2">
-          </div>
-          <div class="field">
-            <label for="f-presta">Votre besoin</label>
-            <select id="f-presta" name="prestation">
-              <option value="">Je ne sais pas encore</option>
-              <option>Ravalement de façade</option>
-              <option>Peinture de façade</option>
-              <option>Enduit / reprises</option>
-              <option>Peinture intérieure</option>
-              <option selected>Nettoyage / hydrofuge</option>
-              <option>Fissures / imperméabilisation</option>
-              <option>Volets &amp; boiseries</option>
-              <option>Copropriété / syndic</option>
-              <option>Autre demande</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-msg">Votre message</label>
-            <textarea id="f-msg" name="message"></textarea>
-          </div>
-          <button type="submit" class="btn btn-accent btn-lg" id="submit-btn">Envoyer ma demande
-            <svg class="ar" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <p class="form-foot">Réponse sous 24 h ouvrées. Devis gratuit et sans engagement.</p>
-        </form>
-
-        <div class="form-state" id="form-ok" role="status" aria-live="polite">
-          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <b>Message reçu.</b>
-          <p>Nous vous rappelons sous 24 h ouvrées pour convenir d'une visite.</p>
-          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
-        </div>
-
-        <div class="form-state is-error" id="form-ko" role="alert" aria-live="assertive">
-          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v5M12 17h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-          <b>L'envoi n'a pas abouti.</b>
-          <p>Le plus simple est de nous appeler directement : nous répondons.</p>
-          <a href="tel:+33604107112" class="fallback-tel">06 04 10 71 12</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="footer">

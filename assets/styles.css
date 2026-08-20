@@ -998,3 +998,50 @@ h2, h3 { text-wrap: balance; }
 .engage-grid li span { font-size: 13.5px; color: var(--text-soft); line-height: 1.5; }
 @media (max-width: 900px) { .engage-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .engage-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Landing type « Top Service » : formulaire dans le hero (v6) ---------- */
+.lp-hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(28px, 4vw, 60px); align-items: start; }
+@media (max-width: 1020px) { .lp-hero-grid { grid-template-columns: 1fr; } }
+
+.lp-form-card {
+  background: var(--surface); border-radius: var(--r-lg);
+  box-shadow: 0 24px 60px rgba(8, 14, 28, .45);
+  padding: clamp(20px, 2.4vw, 28px);
+}
+.lp-form-card .form-head { margin-bottom: 14px; }
+.lp-form-card .form-head b { font-family: var(--display); font-size: 20px; color: var(--ink); display: block; letter-spacing: -.01em; }
+.lp-form-card .form-head p { font-size: 13.5px; color: var(--text-mute); margin-top: 4px; }
+.lp-form-card .field { margin-bottom: 10px; }
+.lp-form-card .field label { font-size: 13px; margin-bottom: 4px; }
+.lp-form-card .field input, .lp-form-card .field select, .lp-form-card .field textarea { min-height: 44px; padding: 10px 12px; font-size: 15px; }
+.lp-form-card .field textarea { min-height: 58px; }
+.lp-form-card .btn { width: 100%; }
+.lp-form-card .form-foot { margin-top: 10px; font-size: 12.5px; color: var(--text-mute); text-align: center; }
+
+/* Barre de réassurance à icônes, sous le hero */
+.trust-bar { background: var(--surface); border-bottom: 1px solid var(--line); }
+.trust-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-block: 18px; }
+.trust-item { display: flex; align-items: center; gap: 12px; }
+.trust-item .ic {
+  flex: none; width: 40px; height: 40px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--gold-tint, rgba(185, 136, 44, .12)); color: var(--gold-deep);
+}
+.trust-item .ic svg { width: 21px; height: 21px; }
+.trust-item b { display: block; font-family: var(--display); font-size: 14.5px; color: var(--ink); }
+.trust-item small { font-size: 12.5px; color: var(--text-mute); }
+@media (max-width: 900px) { .trust-bar .container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .trust-bar .container { grid-template-columns: 1fr; gap: 12px; padding-block: 14px; } }
+
+/* Section « pourquoi ça presse » sombre, risques numérotés */
+.risk-sec { background: var(--navy-2); color: #fff; padding-block: clamp(48px, 7vw, 84px); }
+.risk-sec .kicker { color: var(--gold); }
+.risk-sec h2 { color: #fff; font-size: clamp(24px, 3.2vw, 36px); letter-spacing: -.02em; max-width: 24ch; }
+.risk-sec .lead { color: rgba(255, 255, 255, .72); max-width: 60ch; margin-top: 12px; }
+.risk-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(18px, 3vw, 30px); margin-top: clamp(26px, 4vw, 40px); }
+.risk { display: flex; gap: 14px; align-items: flex-start; }
+.risk .n { font-family: var(--display); font-weight: 800; font-size: 14px; letter-spacing: .08em; color: var(--gold); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.risk h3 { font-size: 16.5px; color: #fff; margin-bottom: 5px; }
+.risk p { font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, .66); }
+.risk-cta { margin-top: clamp(26px, 4vw, 38px); }
+@media (max-width: 720px) { .risk-list { grid-template-columns: 1fr; } }
