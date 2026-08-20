@@ -1082,3 +1082,28 @@ h2, h3 { text-wrap: balance; }
 .lp-wide > h2:first-child { margin-top: 0; }
 .lp-wide > p { color: var(--text-soft); max-width: 68ch; }
 .lp-wide .steps .step p { color: var(--text-soft); }
+
+/* ---------- Correctifs QA conversion mobile (v9) ---------- */
+/* iOS Safari zoome la page entière au focus d'un champ < 16px : interdit. */
+.field input, .field select, .field textarea,
+.lp-form-card .field input, .lp-form-card .field select, .lp-form-card .field textarea {
+  font-size: 16px;
+}
+@media (pointer: coarse) {
+  .lp-form-card .field input, .lp-form-card .field select { min-height: 46px; }
+  .lp-form-card .field textarea { min-height: 56px; }
+}
+
+/* Le tableau de prix défile dans sa boîte au lieu de déborder. */
+.budget-box { overflow-x: auto; }
+.price-table { min-width: 480px; }
+@media (min-width: 640px) { .price-table { min-width: 0; } }
+
+/* CTA hero pleine largeur dès 560px (avant : seulement < ~480px). */
+@media (max-width: 560px) {
+  .hero-cta { flex-direction: column; width: 100%; }
+  .hero-cta .btn { width: 100%; }
+}
+
+/* Fil d'Ariane : zone tactile décente. */
+.crumb a { display: inline-block; padding: 8px 0; }
