@@ -119,18 +119,78 @@
          quand même collectés dans dataLayer.
      ============================================================ */
   window.dataLayer = window.dataLayer || [];
-  var GTM_ID = 'GTM-XXXXXXX';
-  if (GTM_ID.indexOf('XXXX') === -1) {
-    window.dataLayer.push({ 'gtm.start': +new Date(), event: 'gtm.js' });
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  // Balise Google Ads native : pas besoin de GTM ni de GA4 pour compter
+  // les conversions. Les événements dataLayer restent poussés en parallèle,
+  // compatibles avec un GTM branché plus tard.
+  var AW_ID = 'AW-18394451888';
+  var CONV_DEVIS = AW_ID + '/Y2htCJb04OQcELCflMNE';
+  var CONV_APPEL = AW_ID + '/j-rCCP3G6-QcELCflMNE';
+
+  /* Consent Mode v2, version avancée : tout est refusé par défaut. Tant que
+     le visiteur n'a pas accepté, la balise n'envoie que des signaux sans
+     cookie et Google modélise les conversions manquantes. */
+  var CONSENT_CLE = 'vb_consentement';
+  var consentChoix = null;
+  try { consentChoix = localStorage.getItem(CONSENT_CLE); } catch (e) {}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  gtag('set', 'url_passthrough', true);
+  gtag('js', new Date());
+  gtag('config', AW_ID);
+  (function () {
     var g = document.createElement('script');
     g.async = true;
-    g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + AW_ID;
     document.head.appendChild(g);
+  })();
+
+  function accorderConsentement() {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
   }
+  if (consentChoix === 'accepte') accorderConsentement();
+
+  // Bandeau CNIL : deux choix d'égale visibilité, mémorisés sur l'appareil.
+  if (!consentChoix) {
+    var band = document.createElement('div');
+    band.className = 'consent-bar';
+    band.setAttribute('role', 'dialog');
+    band.setAttribute('aria-label', 'Gestion des cookies');
+    band.innerHTML =
+      '<p>Nous mesurons l\'efficacité de nos annonces avec Google. Votre choix est libre et conservé sur votre appareil.</p>' +
+      '<div class="consent-actions">' +
+      '<button type="button" class="btn btn-accent" data-consent="accepte">Tout accepter</button>' +
+      '<button type="button" class="btn consent-refuse" data-consent="refuse">Continuer sans accepter</button>' +
+      '</div>';
+    document.body.appendChild(band);
+    band.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      try { localStorage.setItem(CONSENT_CLE, b.getAttribute('data-consent')); } catch (err) {}
+      if (b.getAttribute('data-consent') === 'accepte') accorderConsentement();
+      band.remove();
+    });
+  }
+
   // Conversion « appel » : tout clic sur un lien tel:
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) window.dataLayer.push({ event: 'phone_call', source: a.className || 'lien' });
+    if (a) {
+      window.dataLayer.push({ event: 'phone_call', source: a.className || 'lien' });
+      gtag('event', 'conversion', { send_to: CONV_APPEL });
+    }
   }, true);
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -360,6 +420,7 @@
             ok.classList.add('show');
             // Conversion « devis » pour Google Ads / GA4 (via dataLayer).
             window.dataLayer.push({ event: 'generate_lead', form: 'devis', prestation: (form.querySelector('[name="prestation"]') || {}).value || '' });
+            gtag('event', 'conversion', { send_to: CONV_DEVIS });
           } else { ko.classList.add('show'); }
         })
         .catch(function () {

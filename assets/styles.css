@@ -1121,3 +1121,22 @@ h2, h3 { text-wrap: balance; }
   .lp-micro { margin-top: 10px; font-size: 12.5px; }
   .lp-proof { margin-top: 18px; }
 }
+
+/* ---------- Bandeau de consentement (v11) ---------- */
+.consent-bar {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90;
+  max-width: 720px; margin-inline: auto;
+  background: var(--navy-1); color: rgba(255, 255, 255, .85);
+  border-radius: var(--r-md); box-shadow: 0 18px 50px rgba(8, 14, 28, .5);
+  padding: 16px 18px;
+  display: flex; align-items: center; gap: 18px;
+}
+.consent-bar p { margin: 0; font-size: 13.5px; line-height: 1.5; }
+.consent-actions { display: flex; gap: 10px; flex: none; }
+.consent-bar .btn { min-height: 42px; padding: 8px 16px; font-size: 14px; }
+.consent-refuse { color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }
+.consent-refuse:hover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7); }
+@media (max-width: 640px) {
+  .consent-bar { flex-direction: column; align-items: stretch; text-align: center; bottom: 8px; }
+  .consent-actions { flex-direction: column; }
+}
