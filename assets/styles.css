@@ -1045,3 +1045,40 @@ h2, h3 { text-wrap: balance; }
 .risk p { font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, .66); }
 .risk-cta { margin-top: clamp(26px, 4vw, 38px); }
 @media (max-width: 720px) { .risk-list { grid-template-columns: 1fr; } }
+
+/* ---------- Équilibrage du hero landing (v7) ---------- */
+/* Le hero des pages landing est moins haut : la carte remplit l'espace. */
+.page-hero:has(.lp-hero-grid) { padding-top: clamp(110px, 12vw, 128px); }
+
+/* Points de bénéfices, colonne gauche (vertical, façon Top Service) */
+.lp-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+.lp-points li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: rgba(255, 255, 255, .85); }
+.lp-points li svg { flex: none; width: 18px; height: 18px; margin-top: 2px; color: var(--gold); }
+
+.lp-micro { margin-top: 14px; font-size: 13px; color: rgba(255, 255, 255, .55); }
+
+/* Photo de preuve dans le hero (remplace la figure sous le hero) */
+.lp-proof { margin: 26px 0 0; border-radius: var(--r-md); overflow: hidden; position: relative; box-shadow: 0 18px 44px rgba(0, 0, 0, .35); }
+.lp-proof img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; display: block; }
+.lp-proof figcaption { position: absolute; right: 10px; bottom: 10px; font-size: 11px; color: #fff; background: rgba(12, 20, 36, .55); padding: 3px 9px; border-radius: 99px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+
+/* Carte plus compacte : le bouton doit passer au-dessus du pli en 1280x720 */
+.lp-form-card .form-head { margin-bottom: 12px; }
+.lp-form-card .form-head p { font-size: 13px; }
+.lp-form-card .field { margin-bottom: 8px; }
+.lp-form-card .field label { margin-bottom: 3px; }
+.lp-form-card .field input, .lp-form-card .field select { min-height: 42px; padding: 9px 12px; }
+.lp-form-card .field textarea { min-height: 46px; padding: 9px 12px; }
+
+/* ---------- Blocs de conversion pleine largeur (v8) ---------- */
+/* Sortis de la colonne de lecture .prose : ils occupent tout le conteneur. */
+.lp-wide { margin-top: clamp(30px, 4vw, 46px); }
+.lp-wide > h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: -.02em;
+  margin: clamp(36px, 5vw, 52px) 0 18px;
+  text-wrap: balance;
+}
+.lp-wide > h2:first-child { margin-top: 0; }
+.lp-wide > p { color: var(--text-soft); max-width: 68ch; }
+.lp-wide .steps .step p { color: var(--text-soft); }
