@@ -123,6 +123,12 @@
   // les conversions. Les événements dataLayer restent poussés en parallèle,
   // compatibles avec un GTM branché plus tard.
   var AW_ID = 'AW-18394451888';
+  /* GA4 et GTM : renseigner les identifiants pour les activer.
+     Laisser vide = rien ne se charge (aucune requête inutile).
+     RÈGLE : la conversion Google Ads reste sur la balise native ci-dessous.
+     Ne JAMAIS recréer la conversion Ads dans GTM : elle compterait double. */
+  var GA4_ID = '';        // ex. 'G-XXXXXXXXXX'
+  var GTM_ID = '';        // ex. 'GTM-XXXXXXX'
   var CONV_DEVIS = AW_ID + '/Y2htCJb04OQcELCflMNE';
   var CONV_APPEL = AW_ID + '/j-rCCP3G6-QcELCflMNE';
 
@@ -142,12 +148,25 @@
   gtag('set', 'url_passthrough', true);
   gtag('js', new Date());
   gtag('config', AW_ID);
+  if (GA4_ID) gtag('config', GA4_ID);   // mesure d'audience, même consentement
   (function () {
     var g = document.createElement('script');
     g.async = true;
     g.src = 'https://www.googletagmanager.com/gtag/js?id=' + AW_ID;
     document.head.appendChild(g);
   })();
+
+  // Conteneur GTM (facultatif) : chargé après le consentement par défaut,
+  // il lit le même dataLayer que la balise native.
+  if (GTM_ID) {
+    window.dataLayer.push({ 'gtm.start': +new Date(), event: 'gtm.js' });
+    (function () {
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+      document.head.appendChild(g);
+    })();
+  }
 
   function accorderConsentement() {
     gtag('consent', 'update', {
