@@ -110,13 +110,10 @@
   /* ============================================================
      SUIVI DES CONVERSIONS (Google Ads / GA4 / Meta via GTM)
      Les deux conversions d'un couvreur : le devis (formulaire) et
-     l'appel (clic sur un numéro). On les pousse dans dataLayer, que
-     GTM lit. dataLayer est un simple tableau : inoffensif sans GTM.
-
-     >>> POUR ACTIVER : remplacer GTM-XXXXXXX par le vrai ID de conteneur
-         Google Tag Manager. Tant que le placeholder est là, GTM ne se
-         charge pas (aucune requête inutile), mais les événements sont
-         quand même collectés dans dataLayer.
+     l'appel (clic sur un numéro). Elles partent directement à Google Ads
+     par la balise native (pas de GTM nécessaire) et sont aussi poussées
+     dans dataLayer : si un conteneur GTM ou GA4 est ajouté plus tard, il
+     les lira sans rien changer ici.
      ============================================================ */
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
