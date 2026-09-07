@@ -1145,3 +1145,19 @@ h2, h3 { text-wrap: balance; }
 .sig-netfox { opacity: .55; font-size: 12.5px; }
 .sig-netfox a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
 .sig-netfox a:hover { opacity: 1; }
+
+/* ---------- Offre d'estimation, page prix (v13) ---------- */
+.estim-box {
+  margin: clamp(30px, 4vw, 44px) 0 8px;
+  padding: clamp(24px, 3.2vw, 34px);
+  background: var(--navy-1); color: rgba(255, 255, 255, .82);
+  border-radius: var(--r-lg); box-shadow: var(--sh-lg);
+}
+.estim-box .kicker { color: var(--gold); }
+.estim-box h2 { color: #fff; margin: 10px 0 14px; font-size: clamp(22px, 3vw, 30px); letter-spacing: -.02em; }
+.estim-box h2 em { font-style: normal; color: var(--gold); }
+.estim-box p { color: rgba(255, 255, 255, .82); max-width: 62ch; }
+.estim-box strong { color: #fff; }
+.estim-box a:not(.btn) { color: #fff; border-bottom: 1px solid rgba(255,255,255,.5); text-decoration: none; }
+.estim-box .btn { margin-top: 18px; }
+.estim-note { margin-top: 14px; font-size: 13.5px; color: rgba(255, 255, 255, .55); }
